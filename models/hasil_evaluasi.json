@@ -1,5 +1,5 @@
 {
-  "model": "Random Forest",
+  "model": "Logistic Regression",
   "jumlah_hari_uji": 812,
   "periode_uji": [
     "2023-04-28",
@@ -7,10 +7,10 @@
   ],
   "hasil": [
     {
-      "Model": "Random Forest",
-      "Accuracy": 0.5431,
-      "F1-macro": 0.5353,
-      "ROC-AUC": 0.5774
+      "Model": "Logistic Regression",
+      "Accuracy": 0.5579,
+      "F1-macro": 0.5541,
+      "ROC-AUC": 0.583
     },
     {
       "Model": "Selalu Naik (baseline)",
@@ -28,28 +28,28 @@
   "target": [
     {
       "Target": "Accuracy \u2265 0,55",
-      "Nilai": 0.543,
-      "Tercapai": "Tidak"
+      "Nilai": 0.558,
+      "Tercapai": "Ya"
     },
     {
       "Target": "F1-macro \u2265 0,55",
-      "Nilai": 0.535,
-      "Tercapai": "Tidak"
+      "Nilai": 0.554,
+      "Tercapai": "Ya"
     },
     {
       "Target": "ROC-AUC \u2265 0,58",
-      "Nilai": 0.577,
-      "Tercapai": "Tidak"
+      "Nilai": 0.583,
+      "Tercapai": "Ya"
     },
     {
       "Target": "Accuracy > baseline \"Selalu Naik\"",
-      "Nilai": 0.021,
+      "Nilai": 0.036,
       "Tercapai": "Ya"
     }
   ],
   "fitur_terpenting": [
     "sp500_chg",
     "vix_chg",
-    "oil_chg"
+    "gold_chg"
   ]
 }

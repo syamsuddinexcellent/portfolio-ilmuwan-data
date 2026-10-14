@@ -1,12 +1,11 @@
 {
-  "model": "Random Forest",
+  "model": "Logistic Regression",
   "fitur": [
     "ihsg_chg",
     "sp500_chg",
     "vix_chg",
     "oil_chg",
-    "gold_chg",
-    "usdidr_chg"
+    "gold_chg"
   ],
-  "cv_accuracy": 0.5952
+  "cv_accuracy": 0.5985
 }

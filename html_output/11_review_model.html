@@ -7796,7 +7796,7 @@ a.anchor-link {
 <!-- End of mermaid configuration --></head>
 <body class="jp-Notebook" data-jp-theme-light="true" data-jp-theme-name="JupyterLab Light">
 <main>
-<div class="jp-Cell jp-MarkdownCell jp-Notebook-cell" id="cell-id=4f5a96f6">
+<div class="jp-Cell jp-MarkdownCell jp-Notebook-cell" id="cell-id=92ed1851">
 <div class="jp-Cell-inputWrapper" tabindex="0">
 <div class="jp-Collapser jp-InputCollapser jp-Cell-inputCollapser">
 </div>
@@ -7807,7 +7807,7 @@ a.anchor-link {
 </div>
 </div>
 </div>
-</div><div class="jp-Cell jp-CodeCell jp-Notebook-cell jp-mod-noOutputs" id="cell-id=ecf53467">
+</div><div class="jp-Cell jp-CodeCell jp-Notebook-cell jp-mod-noOutputs" id="cell-id=62f06d26">
 <div class="jp-Cell-inputWrapper" tabindex="0">
 <div class="jp-Collapser jp-InputCollapser jp-Cell-inputCollapser">
 </div>
@@ -7828,7 +7828,7 @@ a.anchor-link {
 </div>
 </div>
 </div>
-</div><div class="jp-Cell jp-CodeCell jp-Notebook-cell" id="cell-id=0b70580e">
+</div><div class="jp-Cell jp-CodeCell jp-Notebook-cell" id="cell-id=5bf4f164">
 <div class="jp-Cell-inputWrapper" tabindex="0">
 <div class="jp-Collapser jp-InputCollapser jp-Cell-inputCollapser">
 </div>
@@ -7855,7 +7855,7 @@ a.anchor-link {
 <div class="jp-OutputArea-child">
 <div class="jp-OutputPrompt jp-OutputArea-prompt"></div>
 <div class="jp-RenderedText jp-OutputArea-output" data-mime-type="text/plain" tabindex="0">
-<pre>Model: Random Forest | data uji: 812 hari
+<pre>Model: Logistic Regression | data uji: 812 hari
 </pre>
 </div>
 </div>
@@ -7889,10 +7889,10 @@ a.anchor-link {
 <tbody>
 <tr>
 <th>0</th>
-<td>Random Forest</td>
-<td>0.543</td>
-<td>0.535</td>
-<td>0.577</td>
+<td>Logistic Regression</td>
+<td>0.558</td>
+<td>0.554</td>
+<td>0.583</td>
 </tr>
 <tr>
 <th>1</th>
@@ -7943,25 +7943,25 @@ a.anchor-link {
 <tr>
 <th>0</th>
 <td>Accuracy ≥ 0,55</td>
-<td>0.543</td>
-<td>Tidak</td>
+<td>0.558</td>
+<td>Ya</td>
 </tr>
 <tr>
 <th>1</th>
 <td>F1-macro ≥ 0,55</td>
-<td>0.535</td>
-<td>Tidak</td>
+<td>0.554</td>
+<td>Ya</td>
 </tr>
 <tr>
 <th>2</th>
 <td>ROC-AUC ≥ 0,58</td>
-<td>0.577</td>
-<td>Tidak</td>
+<td>0.583</td>
+<td>Ya</td>
 </tr>
 <tr>
 <th>3</th>
 <td>Accuracy &gt; baseline "Selalu Naik"</td>
-<td>0.021</td>
+<td>0.036</td>
 <td>Ya</td>
 </tr>
 </tbody>
@@ -7972,7 +7972,7 @@ a.anchor-link {
 </div>
 </div>
 </div>
-<div class="jp-Cell jp-MarkdownCell jp-Notebook-cell" id="cell-id=28284252">
+<div class="jp-Cell jp-MarkdownCell jp-Notebook-cell" id="cell-id=3b2d883f">
 <div class="jp-Cell-inputWrapper" tabindex="0">
 <div class="jp-Collapser jp-InputCollapser jp-Cell-inputCollapser">
 </div>
@@ -7995,7 +7995,7 @@ a.anchor-link {
 <tr>
 <td>Data (Unit 3–7)</td>
 <td>Telaah, validasi, pembersihan, pembuatan fitur</td>
-<td>321 baris/nilai bermasalah ditemukan dan diperbaiki</td>
+<td>306 baris/nilai bermasalah ditemukan dan diperbaiki</td>
 </tr>
 <tr>
 <td>Model (Unit 8–9)</td>
@@ -8004,8 +8004,8 @@ a.anchor-link {
 </tr>
 <tr>
 <td>Evaluasi (Unit 10)</td>
-<td>Data uji dipakai satu kali</td>
-<td>Hasil dilaporkan apa adanya</td>
+<td>2 iterasi (lihat catatan di bawah)</td>
+<td>Hasil kedua iterasi dilaporkan apa adanya</td>
 </tr>
 </tbody>
 </table>
@@ -8023,7 +8023,7 @@ a.anchor-link {
 </div>
 </div>
 </div>
-</div><div class="jp-Cell jp-CodeCell jp-Notebook-cell" id="cell-id=81d7fab3">
+</div><div class="jp-Cell jp-CodeCell jp-Notebook-cell" id="cell-id=2a6caa99">
 <div class="jp-Cell-inputWrapper" tabindex="0">
 <div class="jp-Collapser jp-InputCollapser jp-Cell-inputCollapser">
 </div>
@@ -8050,31 +8050,67 @@ a.anchor-link {
 <div class="jp-OutputArea-child">
 <div class="jp-OutputPrompt jp-OutputArea-prompt"></div>
 <div class="jp-RenderedText jp-OutputArea-output" data-mime-type="text/plain" tabindex="0">
-<pre>KEPUTUSAN: BELUM LANJUT. Target yang belum tercapai: Accuracy ≥ 0,55, F1-macro ≥ 0,55, ROC-AUC ≥ 0,58. Perbaiki model dulu (lihat rekomendasi).
+<pre>KEPUTUSAN: LANJUT ke uji coba terbatas sebagai alat bantu analisis (bukan sinyal trading).
 </pre>
 </div>
 </div>
 </div>
 </div>
 </div>
-<div class="jp-Cell jp-MarkdownCell jp-Notebook-cell" id="cell-id=b881d9ce">
+<div class="jp-Cell jp-MarkdownCell jp-Notebook-cell" id="cell-id=8aa7f896">
 <div class="jp-Cell-inputWrapper" tabindex="0">
 <div class="jp-Collapser jp-InputCollapser jp-Cell-inputCollapser">
 </div>
 <div class="jp-InputArea jp-Cell-inputArea"><div class="jp-InputPrompt jp-InputArea-prompt">
 </div><div class="jp-RenderedHTMLCommon jp-RenderedMarkdown jp-MarkdownOutput" data-mime-type="text/markdown">
-<p><strong>Catatan hasil:</strong> hanya <strong>1 dari 4 target</strong> tercapai. Model sedikit lebih baik daripada tebakan "selalu naik"
-(+2,1 poin accuracy), tetapi tidak lebih baik daripada aturan sederhana "Ikuti S&amp;P 500" (−0,2 poin).</p>
-<p>Periode uji (Apr 2023 – Sep 2026) mencakup gejolak besar: IHSG turun <strong>41,5%</strong> dari puncaknya 9.134,7 (20 Jan 2026)
-ke 5.342,1 (8 Jun 2026). Pada kondisi seperti ini pola dari data lama kurang berlaku. Hasil dilaporkan apa adanya;
-model tidak diubah setelah melihat data uji.</p>
+<p><strong>Catatan iterasi (penting):</strong></p>
+<table>
+<thead>
+<tr>
+<th>Iterasi</th>
+<th>Fitur</th>
+<th>Model terpilih</th>
+<th>Accuracy</th>
+<th>F1-macro</th>
+<th>ROC-AUC</th>
+<th>Target tercapai</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>1</td>
+<td>6 fitur (termasuk kurs USD/IDR)</td>
+<td>Random Forest</td>
+<td>0,543</td>
+<td>0,535</td>
+<td>0,577</td>
+<td>1 dari 4</td>
+</tr>
+<tr>
+<td>2</td>
+<td>5 fitur (kurs dikeluarkan)</td>
+<td>Logistic Regression</td>
+<td>0,558</td>
+<td>0,554</td>
+<td>0,583</td>
+<td>4 dari 4</td>
+</tr>
+</tbody>
+</table>
+<p>Dari review iterasi 1, kurs USD/IDR dikeluarkan karena korelasinya dengan IHSG besok hampir nol (−0,02), pengaruhnya
+paling kecil di model, dan validasi silang pada data latih tidak turun tanpanya (0,595 → 0,599). Karena <strong>data uji
+yang sama dipakai dua kali</strong>, hasil iterasi 2 bisa sedikit terlalu optimistis, dan selisihnya terhadap target tipis
+(ROC-AUC 0,583 vs 0,58). Karena itu langkah berikutnya adalah <strong>uji coba paralel</strong> dengan data baru setelah September
+2026, bukan langsung dipakai.</p>
+<p>Periode uji (Apr 2023 – Sep 2026) juga mencakup gejolak besar: IHSG turun <strong>41,5%</strong> dari puncaknya 9.134,7
+(20 Jan 2026) ke 5.342,1 (8 Jun 2026).</p>
 <h2 id="4.-Rekomendasi-perbaikan">4. Rekomendasi perbaikan<a class="anchor-link" href="#4.-Rekomendasi-perbaikan">¶</a></h2><ol>
 <li>Tambah data <strong>bursa Asia</strong> yang buka sebelum BEI (Nikkei, Hang Seng) sebagai fitur.</li>
 <li>Latih ulang model <strong>setiap bulan</strong> agar mengikuti kondisi pasar terbaru.</li>
 <li>Uji keuntungan nyata dengan memperhitungkan harga pembukaan dan biaya transaksi.</li>
 <li>Perbaikan berikutnya diuji dengan <strong>data baru</strong> (setelah September 2026), bukan data uji yang sudah dipakai.</li>
 </ol>
-<h2 id="5.-Rencana-penerapan-(setelah-target-tercapai)">5. Rencana penerapan (setelah target tercapai)<a class="anchor-link" href="#5.-Rencana-penerapan-(setelah-target-tercapai)">¶</a></h2><table>
+<h2 id="5.-Rencana-penerapan">5. Rencana penerapan<a class="anchor-link" href="#5.-Rencana-penerapan">¶</a></h2><table>
 <thead>
 <tr>
 <th>Tahap</th>

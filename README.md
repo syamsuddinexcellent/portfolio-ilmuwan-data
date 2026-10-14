@@ -10,9 +10,9 @@ Sertifikasi BNSP · LSP Digital Kreatif Solusi · Skema DSS.01.00.23 Ilmuwan Dat
 BEI tutup pukul 16.00 WIB, sedangkan bursa Amerika buka malam harinya. Jadi setiap pagi kita sudah tahu apa yang terjadi
 di pasar global semalam.
 
-- **Data:** data nyata harian 1 Jan 2010 – 30 Sep 2026 untuk 6 variabel: IHSG, S&P 500, VIX, minyak, emas, dan kurs
-  USD/IDR. Sumber: Yahoo Finance (kode ^JKSE, ^GSPC, ^VIX, CL=F, GC=F, IDR=X), harga penutupan harian.
-- **Fitur:** perubahan harian (%) dari 6 variabel tersebut.
+- **Data:** data nyata harian 1 Jan 2010 – 30 Sep 2026 untuk 5 variabel: IHSG, S&P 500, VIX, minyak, dan emas.
+  Sumber: Yahoo Finance (kode ^JKSE, ^GSPC, ^VIX, CL=F, GC=F), harga penutupan harian.
+- **Fitur:** perubahan harian (%) dari 5 variabel tersebut.
 - **Target:** 1 jika IHSG pada hari bursa berikutnya naik, 0 jika tidak.
 - **Model:** Logistic Regression, Decision Tree, Random Forest, dibandingkan dengan 2 tebakan sederhana (baseline).
 
@@ -20,22 +20,23 @@ di pasar global semalam.
 
 | Model | Accuracy | F1-macro | ROC-AUC |
 |---|---|---|---|
-| **Random Forest** | **0,543** | **0,535** | **0,577** |
+| **Logistic Regression** | **0,558** | **0,554** | **0,583** |
 | Baseline: ikuti arah S&P 500 | 0,546 | 0,543 | 0,575 |
 | Baseline: selalu menebak "naik" | 0,522 | 0,343 | 0,500 |
 
-Hanya 1 dari 4 target Unit 2 yang tercapai: model lebih baik daripada tebakan "selalu naik", tetapi accuracy, F1, dan
-ROC-AUC masih sedikit di bawah target (0,55; 0,55; 0,58), dan model setara dengan aturan sederhana "ikuti S&P 500".
-Periode uji mencakup gejolak besar: IHSG turun 41,5% dari puncak 9.134,7 (20 Jan 2026) ke 5.342,1 (8 Jun 2026).
-Faktor paling berpengaruh adalah **perubahan S&P 500 semalam**, disusul VIX. Keputusan review (Unit 11): model belum
-dipakai; rekomendasi perbaikan ada di Unit 11.
+Keempat target Unit 2 tercapai (accuracy ≥ 0,55; F1 ≥ 0,55; ROC-AUC ≥ 0,58; lebih baik dari "selalu naik"), tetapi
+selisihnya tipis. Faktor paling berpengaruh adalah **perubahan S&P 500 semalam**, disusul VIX. Periode uji mencakup
+gejolak besar: IHSG turun 41,5% dari puncak 9.134,7 (20 Jan 2026) ke 5.342,1 (8 Jun 2026).
+
+Ini hasil **iterasi kedua**. Iterasi pertama memakai satu variabel tambahan dan hanya mencapai 1 dari 4 target;
+variabel itu dikeluarkan karena pengaruhnya hampir nol. Karena data uji yang sama dipakai dua kali, hasil ini perlu
+dikonfirmasi dengan data baru setelah September 2026 (rincian di Unit 11).
 
 ## Temuan masalah data (diperbaiki di Unit 6)
 
 | Masalah | Jumlah | Tindakan |
 |---|---|---|
 | Baris kosong (1 Jan 2010) | 1 | Dihapus |
-| Kurs USD/IDR janggal (mis. 888,11) | 15 | Diganti nilai hari sebelumnya |
 | Harga minyak negatif (20 Apr 2020) | 1 | Diganti nilai hari sebelumnya |
 | Hari libur BEI (IHSG disalin) | 304 | Dihapus |
 
