@@ -8,5 +8,5 @@
     "gold_chg",
     "usdidr_chg"
   ],
-  "cv_accuracy": 0.594
+  "cv_accuracy": 0.5952
 }
