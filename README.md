@@ -16,6 +16,20 @@ di pasar global semalam.
 - **Target:** 1 jika IHSG pada hari bursa berikutnya naik, 0 jika tidak.
 - **Model:** Logistic Regression, Decision Tree, Random Forest, dibandingkan dengan 2 tebakan sederhana (baseline).
 
+## Keterangan data
+
+| Variabel | Apa itu? | Satuan | Kode Yahoo Finance |
+|---|---|---|---|
+| **IHSG** | Indeks Harga Saham Gabungan: merangkum pergerakan harga seluruh saham di Bursa Efek Indonesia (BEI) | poin indeks | ^JKSE |
+| **S&P 500** | Indeks 500 perusahaan terbesar di Amerika Serikat (mis. Apple, Microsoft, Nvidia); cerminan utama pasar saham AS | poin indeks | ^GSPC |
+| **VIX** | "Indeks ketakutan" dari bursa Cboe: perkiraan besarnya gejolak pasar saham AS dalam 30 hari ke depan. Di bawah ±20 = tenang, di atas ±30 = investor cemas | poin | ^VIX |
+| **Minyak (OIL)** | Harga kontrak berjangka minyak mentah WTI (*West Texas Intermediate*) di bursa NYMEX, salah satu acuan harga minyak dunia | USD per barel (≈ 159 liter) | CL=F |
+| **Emas (GOLD)** | Harga kontrak berjangka emas di bursa COMEX; dianggap aset aman (*safe haven*) saat pasar bergejolak | USD per troy ounce (≈ 31,1 gram) | GC=F |
+
+BEI berdagang sekitar 09.00–16.00 WIB, sedangkan bursa AS sekitar 20.30–03.00 WIB (Maret–November) atau
+21.30–04.00 WIB (November–Maret). Karena itu data S&P 500, VIX, minyak, dan emas hari ini sudah tersedia sebelum BEI
+dibuka keesokan paginya. Penjelasan lengkap ada di [Unit 3](notebooks/03_menelaah_data.ipynb).
+
 ## Hasil (data uji 28 Apr 2023 – 29 Sep 2026, 812 hari bursa)
 
 | Model | Accuracy | F1-macro | ROC-AUC |

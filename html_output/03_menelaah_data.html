@@ -7796,7 +7796,7 @@ a.anchor-link {
 <!-- End of mermaid configuration --></head>
 <body class="jp-Notebook" data-jp-theme-light="true" data-jp-theme-name="JupyterLab Light">
 <main>
-<div class="jp-Cell jp-MarkdownCell jp-Notebook-cell" id="cell-id=282c49d5">
+<div class="jp-Cell jp-MarkdownCell jp-Notebook-cell" id="cell-id=652ce421">
 <div class="jp-Cell-inputWrapper" tabindex="0">
 <div class="jp-Collapser jp-InputCollapser jp-Cell-inputCollapser">
 </div>
@@ -7807,7 +7807,7 @@ a.anchor-link {
 </div>
 </div>
 </div>
-</div><div class="jp-Cell jp-CodeCell jp-Notebook-cell jp-mod-noOutputs" id="cell-id=4a613b53">
+</div><div class="jp-Cell jp-CodeCell jp-Notebook-cell jp-mod-noOutputs" id="cell-id=42b019b7">
 <div class="jp-Cell-inputWrapper" tabindex="0">
 <div class="jp-Collapser jp-InputCollapser jp-Cell-inputCollapser">
 </div>
@@ -7829,7 +7829,7 @@ a.anchor-link {
 </div>
 </div>
 </div>
-<div class="jp-Cell jp-MarkdownCell jp-Notebook-cell" id="cell-id=29e4114a">
+<div class="jp-Cell jp-MarkdownCell jp-Notebook-cell" id="cell-id=a48df771">
 <div class="jp-Cell-inputWrapper" tabindex="0">
 <div class="jp-Collapser jp-InputCollapser jp-Cell-inputCollapser">
 </div>
@@ -7839,7 +7839,7 @@ a.anchor-link {
 </div>
 </div>
 </div>
-</div><div class="jp-Cell jp-CodeCell jp-Notebook-cell" id="cell-id=075819a4">
+</div><div class="jp-Cell jp-CodeCell jp-Notebook-cell" id="cell-id=06228129">
 <div class="jp-Cell-inputWrapper" tabindex="0">
 <div class="jp-Collapser jp-InputCollapser jp-Cell-inputCollapser">
 </div>
@@ -7953,49 +7953,97 @@ Periode      : 2010-01-01 s.d. 2026-09-30
 </div>
 </div>
 </div>
-<div class="jp-Cell jp-MarkdownCell jp-Notebook-cell" id="cell-id=cf4197c1">
+<div class="jp-Cell jp-MarkdownCell jp-Notebook-cell" id="cell-id=66051768">
 <div class="jp-Cell-inputWrapper" tabindex="0">
 <div class="jp-Collapser jp-InputCollapser jp-Cell-inputCollapser">
 </div>
 <div class="jp-InputArea jp-Cell-inputArea"><div class="jp-InputPrompt jp-InputArea-prompt">
 </div><div class="jp-RenderedHTMLCommon jp-RenderedMarkdown jp-MarkdownOutput" data-mime-type="text/markdown">
-<table>
+<h3 id="Keterangan-setiap-variabel">Keterangan setiap variabel<a class="anchor-link" href="#Keterangan-setiap-variabel">¶</a></h3><table>
 <thead>
 <tr>
 <th>Kolom</th>
-<th>Arti</th>
+<th>Nama lengkap</th>
+<th>Apa itu?</th>
+<th>Satuan</th>
+<th>Kode Yahoo Finance</th>
 </tr>
 </thead>
 <tbody>
 <tr>
 <td>Date</td>
-<td>Tanggal (hari kerja)</td>
+<td>Tanggal</td>
+<td>Hari kerja Senin–Jumat</td>
+<td>–</td>
+<td>–</td>
 </tr>
 <tr>
 <td>IHSG</td>
 <td>Indeks Harga Saham Gabungan</td>
+<td>Indeks yang merangkum pergerakan harga <strong>seluruh saham di Bursa Efek Indonesia (BEI)</strong></td>
+<td>poin indeks (nilai dasar 100 pada 10 Agustus 1982)</td>
+<td>^JKSE</td>
 </tr>
 <tr>
 <td>SP500</td>
-<td>Indeks saham Amerika</td>
+<td>Standard &amp; Poor's 500</td>
+<td>Indeks <strong>500 perusahaan terbesar di Amerika Serikat</strong> (mis. Apple, Microsoft, Nvidia) yang tercatat di bursa NYSE dan Nasdaq; cerminan utama pasar saham AS</td>
+<td>poin indeks</td>
+<td>^GSPC</td>
 </tr>
 <tr>
 <td>VIX</td>
-<td>Indeks "ketakutan" pasar global</td>
+<td>Cboe Volatility Index</td>
+<td>"Indeks ketakutan": perkiraan investor tentang <strong>besarnya gejolak pasar saham AS dalam 30 hari ke depan</strong>, dihitung oleh bursa Cboe dari harga opsi S&amp;P 500</td>
+<td>poin (% gejolak per tahun)</td>
+<td>^VIX</td>
 </tr>
 <tr>
-<td>OIL, GOLD</td>
-<td>Harga minyak dan emas (USD)</td>
+<td>OIL</td>
+<td>Minyak mentah WTI</td>
+<td>Harga kontrak berjangka minyak mentah <em>West Texas Intermediate</em> di bursa NYMEX (AS), salah satu acuan harga minyak dunia</td>
+<td>USD per barel (≈ 159 liter)</td>
+<td>CL=F</td>
+</tr>
+<tr>
+<td>GOLD</td>
+<td>Emas</td>
+<td>Harga kontrak berjangka emas di bursa COMEX (AS)</td>
+<td>USD per troy ounce (≈ 31,1 gram)</td>
+<td>GC=F</td>
 </tr>
 </tbody>
 </table>
-<p><strong>Sumber data:</strong> Yahoo Finance (kode ^JKSE, ^GSPC, ^VIX, CL=F, GC=F), harga penutupan harian, diperbarui
-sampai 30 September 2026. Pada hari libur suatu pasar, nilainya diisi dengan nilai hari sebelumnya.</p>
+<h3 id="Cara-membaca-dan-kaitannya-dengan-IHSG">Cara membaca dan kaitannya dengan IHSG<a class="anchor-link" href="#Cara-membaca-dan-kaitannya-dengan-IHSG">¶</a></h3><ul>
+<li><strong>IHSG</strong> — jika IHSG naik, rata-rata harga saham di BEI (ditimbang menurut besar perusahaan) naik. BEI berdagang
+Senin–Jumat sekitar pukul <strong>09.00–16.00 WIB</strong>. Di proyek ini IHSG menjadi <strong>sumber target</strong> (naik/turun besok)
+sekaligus fitur.</li>
+<li><strong>S&amp;P 500</strong> — bursa AS berdagang pukul 09.30–16.00 waktu New York, atau sekitar <strong>20.30–03.00 WIB</strong> (Maret–November)
+dan <strong>21.30–04.00 WIB</strong> (November–Maret). Karena bursa AS buka setelah BEI tutup, hasilnya menjadi informasi baru
+bagi IHSG keesokan harinya.</li>
+<li><strong>VIX</strong> — di bawah ±20 berarti pasar relatif tenang (71% hari dalam data ini), di atas ±30 berarti investor cemas
+(6% hari). Nilai tertinggi dalam data adalah <strong>82,69 pada 16 Maret 2020</strong> (awal pandemi COVID-19). Saat VIX naik,
+investor global cenderung menjual aset berisiko, termasuk saham di negara berkembang seperti Indonesia.</li>
+<li><strong>Minyak (OIL)</strong> — banyak perusahaan energi dan tambang tercatat di BEI, dan harga minyak juga mencerminkan perkiraan
+pertumbuhan ekonomi dunia. Harga ini pernah <strong>negatif (−37,63) pada 20 April 2020</strong> karena kontrak Mei 2020 hampir
+jatuh tempo saat tempat penyimpanan minyak di AS hampir penuh.</li>
+<li><strong>Emas (GOLD)</strong> — dianggap aset aman (<em>safe haven</em>) yang dicari saat pasar bergejolak; pergerakannya mencerminkan
+sentimen global dan memengaruhi saham tambang logam.</li>
+</ul>
+<h3 id="Istilah-penting">Istilah penting<a class="anchor-link" href="#Istilah-penting">¶</a></h3><ul>
+<li><strong>Indeks saham:</strong> satu angka yang merangkum pergerakan harga sekumpulan saham.</li>
+<li><strong>Kontrak berjangka (<em>futures</em>):</strong> perjanjian jual-beli suatu barang pada harga tertentu untuk waktu yang akan datang;
+harganya dipakai sebagai acuan harga pasar harian.</li>
+<li><strong>Harga penutupan:</strong> harga terakhir pada satu hari perdagangan. Data ini memakai harga penutupan.</li>
+<li><strong>Volatilitas:</strong> besarnya naik-turun harga.</li>
+</ul>
+<p><strong>Sumber data:</strong> Yahoo Finance, harga penutupan harian, diperbarui sampai 30 September 2026. Pada hari libur suatu
+pasar, nilainya diisi dengan nilai hari sebelumnya.</p>
 </div>
 </div>
 </div>
 </div>
-<div class="jp-Cell jp-MarkdownCell jp-Notebook-cell" id="cell-id=2417b86e">
+<div class="jp-Cell jp-MarkdownCell jp-Notebook-cell" id="cell-id=92f7ae9d">
 <div class="jp-Cell-inputWrapper" tabindex="0">
 <div class="jp-Collapser jp-InputCollapser jp-Cell-inputCollapser">
 </div>
@@ -8005,7 +8053,7 @@ sampai 30 September 2026. Pada hari libur suatu pasar, nilainya diisi dengan nil
 </div>
 </div>
 </div>
-</div><div class="jp-Cell jp-CodeCell jp-Notebook-cell" id="cell-id=0b9b3b8c">
+</div><div class="jp-Cell jp-CodeCell jp-Notebook-cell" id="cell-id=4f9ba763">
 <div class="jp-Cell-inputWrapper" tabindex="0">
 <div class="jp-Collapser jp-InputCollapser jp-Cell-inputCollapser">
 </div>
@@ -8044,7 +8092,7 @@ memory usage: 204.7 KB
 </div>
 </div>
 </div>
-</div><div class="jp-Cell jp-CodeCell jp-Notebook-cell" id="cell-id=c3592329">
+</div><div class="jp-Cell jp-CodeCell jp-Notebook-cell" id="cell-id=4adbb468">
 <div class="jp-Cell-inputWrapper" tabindex="0">
 <div class="jp-Collapser jp-InputCollapser jp-Cell-inputCollapser">
 </div>
@@ -8172,7 +8220,125 @@ memory usage: 204.7 KB
 </div>
 </div>
 </div>
-<div class="jp-Cell jp-MarkdownCell jp-Notebook-cell" id="cell-id=2549a823">
+<div class="jp-Cell jp-MarkdownCell jp-Notebook-cell" id="cell-id=e38d6335">
+<div class="jp-Cell-inputWrapper" tabindex="0">
+<div class="jp-Collapser jp-InputCollapser jp-Cell-inputCollapser">
+</div>
+<div class="jp-InputArea jp-Cell-inputArea"><div class="jp-InputPrompt jp-InputArea-prompt">
+</div><div class="jp-RenderedHTMLCommon jp-RenderedMarkdown jp-MarkdownOutput" data-mime-type="text/markdown">
+<p>Nilai terendah dan tertinggi setiap variabel beserta tanggalnya:</p>
+</div>
+</div>
+</div>
+</div><div class="jp-Cell jp-CodeCell jp-Notebook-cell" id="cell-id=3fed76b3">
+<div class="jp-Cell-inputWrapper" tabindex="0">
+<div class="jp-Collapser jp-InputCollapser jp-Cell-inputCollapser">
+</div>
+<div class="jp-InputArea jp-Cell-inputArea">
+<div class="jp-InputPrompt jp-InputArea-prompt">In [5]:</div>
+<div class="jp-CodeMirrorEditor jp-Editor jp-InputArea-editor" data-type="inline">
+<div class="cm-editor cm-s-jupyter">
+<div class="highlight hl-ipython3"><pre><span></span><span class="n">ringkas</span> <span class="o">=</span> <span class="p">[]</span>
+<span class="k">for</span> <span class="n">k</span> <span class="ow">in</span> <span class="p">[</span><span class="s1">'IHSG'</span><span class="p">,</span> <span class="s1">'SP500'</span><span class="p">,</span> <span class="s1">'VIX'</span><span class="p">,</span> <span class="s1">'OIL'</span><span class="p">,</span> <span class="s1">'GOLD'</span><span class="p">]:</span>
+    <span class="n">s</span> <span class="o">=</span> <span class="n">df</span><span class="o">.</span><span class="n">set_index</span><span class="p">(</span><span class="s1">'Date'</span><span class="p">)[</span><span class="n">k</span><span class="p">]</span><span class="o">.</span><span class="n">dropna</span><span class="p">()</span>
+    <span class="n">ringkas</span><span class="o">.</span><span class="n">append</span><span class="p">({</span><span class="s1">'Variabel'</span><span class="p">:</span> <span class="n">k</span><span class="p">,</span>
+                    <span class="s1">'Terendah'</span><span class="p">:</span> <span class="nb">round</span><span class="p">(</span><span class="n">s</span><span class="o">.</span><span class="n">min</span><span class="p">(),</span> <span class="mi">2</span><span class="p">),</span> <span class="s1">'Tanggal terendah'</span><span class="p">:</span> <span class="n">s</span><span class="o">.</span><span class="n">idxmin</span><span class="p">()</span><span class="o">.</span><span class="n">date</span><span class="p">(),</span>
+                    <span class="s1">'Tertinggi'</span><span class="p">:</span> <span class="nb">round</span><span class="p">(</span><span class="n">s</span><span class="o">.</span><span class="n">max</span><span class="p">(),</span> <span class="mi">2</span><span class="p">),</span> <span class="s1">'Tanggal tertinggi'</span><span class="p">:</span> <span class="n">s</span><span class="o">.</span><span class="n">idxmax</span><span class="p">()</span><span class="o">.</span><span class="n">date</span><span class="p">(),</span>
+                    <span class="s1">'Terakhir (30 Sep 2026)'</span><span class="p">:</span> <span class="nb">round</span><span class="p">(</span><span class="n">s</span><span class="o">.</span><span class="n">iloc</span><span class="p">[</span><span class="o">-</span><span class="mi">1</span><span class="p">],</span> <span class="mi">2</span><span class="p">)})</span>
+<span class="n">pd</span><span class="o">.</span><span class="n">DataFrame</span><span class="p">(</span><span class="n">ringkas</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+</div>
+</div>
+<div class="jp-Cell-outputWrapper">
+<div class="jp-Collapser jp-OutputCollapser jp-Cell-outputCollapser">
+</div>
+<div class="jp-OutputArea jp-Cell-outputArea">
+<div class="jp-OutputArea-child jp-OutputArea-executeResult">
+<div class="jp-OutputPrompt jp-OutputArea-prompt">Out[5]:</div>
+<div class="jp-RenderedHTMLCommon jp-RenderedHTML jp-OutputArea-output jp-OutputArea-executeResult" data-mime-type="text/html" tabindex="0">
+<div>
+<style scoped="">
+    .dataframe tbody tr th:only-of-type {
+        vertical-align: middle;
+    }
+
+    .dataframe tbody tr th {
+        vertical-align: top;
+    }
+
+    .dataframe thead th {
+        text-align: right;
+    }
+</style>
+<table border="1" class="dataframe">
+<thead>
+<tr style="text-align: right;">
+<th></th>
+<th>Variabel</th>
+<th>Terendah</th>
+<th>Tanggal terendah</th>
+<th>Tertinggi</th>
+<th>Tanggal tertinggi</th>
+<th>Terakhir (30 Sep 2026)</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<th>0</th>
+<td>IHSG</td>
+<td>2475.48</td>
+<td>2010-02-08</td>
+<td>9134.70</td>
+<td>2026-01-20</td>
+<td>6071.14</td>
+</tr>
+<tr>
+<th>1</th>
+<td>SP500</td>
+<td>1022.58</td>
+<td>2010-07-02</td>
+<td>7798.99</td>
+<td>2026-08-13</td>
+<td>7651.54</td>
+</tr>
+<tr>
+<th>2</th>
+<td>VIX</td>
+<td>9.14</td>
+<td>2017-11-03</td>
+<td>82.69</td>
+<td>2020-03-16</td>
+<td>16.34</td>
+</tr>
+<tr>
+<th>3</th>
+<td>OIL</td>
+<td>-37.63</td>
+<td>2020-04-20</td>
+<td>123.70</td>
+<td>2022-03-08</td>
+<td>90.42</td>
+</tr>
+<tr>
+<th>4</th>
+<td>GOLD</td>
+<td>1050.80</td>
+<td>2015-12-17</td>
+<td>5318.40</td>
+<td>2026-01-29</td>
+<td>4186.70</td>
+</tr>
+</tbody>
+</table>
+</div>
+</div>
+</div>
+</div>
+</div>
+</div>
+<div class="jp-Cell jp-MarkdownCell jp-Notebook-cell" id="cell-id=55a41eed">
 <div class="jp-Cell-inputWrapper" tabindex="0">
 <div class="jp-Collapser jp-InputCollapser jp-Cell-inputCollapser">
 </div>
@@ -8182,12 +8348,12 @@ memory usage: 204.7 KB
 </div>
 </div>
 </div>
-</div><div class="jp-Cell jp-CodeCell jp-Notebook-cell" id="cell-id=506ed320">
+</div><div class="jp-Cell jp-CodeCell jp-Notebook-cell" id="cell-id=223a74a3">
 <div class="jp-Cell-inputWrapper" tabindex="0">
 <div class="jp-Collapser jp-InputCollapser jp-Cell-inputCollapser">
 </div>
 <div class="jp-InputArea jp-Cell-inputArea">
-<div class="jp-InputPrompt jp-InputArea-prompt">In [5]:</div>
+<div class="jp-InputPrompt jp-InputArea-prompt">In [6]:</div>
 <div class="jp-CodeMirrorEditor jp-Editor jp-InputArea-editor" data-type="inline">
 <div class="cm-editor cm-s-jupyter">
 <div class="highlight hl-ipython3"><pre><span></span><span class="n">kolom</span> <span class="o">=</span> <span class="p">[</span><span class="s1">'IHSG'</span><span class="p">,</span> <span class="s1">'SP500'</span><span class="p">,</span> <span class="s1">'VIX'</span><span class="p">,</span> <span class="s1">'OIL'</span><span class="p">,</span> <span class="s1">'GOLD'</span><span class="p">]</span>
@@ -8217,7 +8383,7 @@ memory usage: 204.7 KB
 </div>
 </div>
 </div>
-<div class="jp-Cell jp-MarkdownCell jp-Notebook-cell" id="cell-id=4b99795f">
+<div class="jp-Cell jp-MarkdownCell jp-Notebook-cell" id="cell-id=d088f8e6">
 <div class="jp-Cell-inputWrapper" tabindex="0">
 <div class="jp-Collapser jp-InputCollapser jp-Cell-inputCollapser">
 </div>
@@ -8228,12 +8394,12 @@ memory usage: 204.7 KB
 </div>
 </div>
 </div>
-</div><div class="jp-Cell jp-CodeCell jp-Notebook-cell" id="cell-id=d815bc74">
+</div><div class="jp-Cell jp-CodeCell jp-Notebook-cell" id="cell-id=fd02771b">
 <div class="jp-Cell-inputWrapper" tabindex="0">
 <div class="jp-Collapser jp-InputCollapser jp-Cell-inputCollapser">
 </div>
 <div class="jp-InputArea jp-Cell-inputArea">
-<div class="jp-InputPrompt jp-InputArea-prompt">In [6]:</div>
+<div class="jp-InputPrompt jp-InputArea-prompt">In [7]:</div>
 <div class="jp-CodeMirrorEditor jp-Editor jp-InputArea-editor" data-type="inline">
 <div class="cm-editor cm-s-jupyter">
 <div class="highlight hl-ipython3"><pre><span></span><span class="n">ihsg</span> <span class="o">=</span> <span class="n">df</span><span class="p">[[</span><span class="s1">'Date'</span><span class="p">,</span> <span class="s1">'IHSG'</span><span class="p">]]</span><span class="o">.</span><span class="n">dropna</span><span class="p">()</span>
@@ -8261,7 +8427,7 @@ Hari IHSG turun : 46.0%
 </div>
 </div>
 </div>
-<div class="jp-Cell jp-MarkdownCell jp-Notebook-cell" id="cell-id=38059df1">
+<div class="jp-Cell jp-MarkdownCell jp-Notebook-cell" id="cell-id=47ae1a71">
 <div class="jp-Cell-inputWrapper" tabindex="0">
 <div class="jp-Collapser jp-InputCollapser jp-Cell-inputCollapser">
 </div>
@@ -8273,12 +8439,12 @@ mudah terpengaruh nilai ekstrem.</p>
 </div>
 </div>
 </div>
-</div><div class="jp-Cell jp-CodeCell jp-Notebook-cell" id="cell-id=bffa417c">
+</div><div class="jp-Cell jp-CodeCell jp-Notebook-cell" id="cell-id=083cd078">
 <div class="jp-Cell-inputWrapper" tabindex="0">
 <div class="jp-Collapser jp-InputCollapser jp-Cell-inputCollapser">
 </div>
 <div class="jp-InputArea jp-Cell-inputArea">
-<div class="jp-InputPrompt jp-InputArea-prompt">In [7]:</div>
+<div class="jp-InputPrompt jp-InputArea-prompt">In [8]:</div>
 <div class="jp-CodeMirrorEditor jp-Editor jp-InputArea-editor" data-type="inline">
 <div class="cm-editor cm-s-jupyter">
 <div class="highlight hl-ipython3"><pre><span></span><span class="n">data</span> <span class="o">=</span> <span class="n">df</span><span class="p">[</span><span class="n">df</span><span class="p">[</span><span class="s1">'Date'</span><span class="p">]</span> <span class="o">&lt;=</span> <span class="s1">'2022-12-31'</span><span class="p">]</span><span class="o">.</span><span class="n">dropna</span><span class="p">()</span>
@@ -8325,7 +8491,7 @@ Name: IHSG_besok, dtype: float64
 </div>
 </div>
 </div>
-<div class="jp-Cell jp-MarkdownCell jp-Notebook-cell" id="cell-id=bbe1941a">
+<div class="jp-Cell jp-MarkdownCell jp-Notebook-cell" id="cell-id=2f8770c8">
 <div class="jp-Cell-inputWrapper" tabindex="0">
 <div class="jp-Collapser jp-InputCollapser jp-Cell-inputCollapser">
 </div>
