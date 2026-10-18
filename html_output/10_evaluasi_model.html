@@ -7796,18 +7796,18 @@ a.anchor-link {
 <!-- End of mermaid configuration --></head>
 <body class="jp-Notebook" data-jp-theme-light="true" data-jp-theme-name="JupyterLab Light">
 <main>
-<div class="jp-Cell jp-MarkdownCell jp-Notebook-cell" id="cell-id=969773bf">
+<div class="jp-Cell jp-MarkdownCell jp-Notebook-cell" id="cell-id=bb7a9639">
 <div class="jp-Cell-inputWrapper" tabindex="0">
 <div class="jp-Collapser jp-InputCollapser jp-Cell-inputCollapser">
 </div>
 <div class="jp-InputArea jp-Cell-inputArea"><div class="jp-InputPrompt jp-InputArea-prompt">
 </div><div class="jp-RenderedHTMLCommon jp-RenderedMarkdown jp-MarkdownOutput" data-mime-type="text/markdown">
 <h1 id="Unit-10:-Mengevaluasi-Hasil-Pemodelan">Unit 10: Mengevaluasi Hasil Pemodelan<a class="anchor-link" href="#Unit-10:-Mengevaluasi-Hasil-Pemodelan">¶</a></h1><p><strong>Kode unit:</strong> J.62DMI00.014.1 · SKKNI No. 299 Tahun 2020 · Proyek: <em>Prediksi Arah Harian IHSG</em></p>
-<p><strong>Tujuan unit ini:</strong> menguji model terbaik dengan data uji yang belum pernah dilihat.</p>
+<p><strong>Tujuan unit ini:</strong> menguji model kedua iterasi dengan data uji dan memeriksa apakah target tercapai.</p>
 </div>
 </div>
 </div>
-</div><div class="jp-Cell jp-CodeCell jp-Notebook-cell jp-mod-noOutputs" id="cell-id=a22745c1">
+</div><div class="jp-Cell jp-CodeCell jp-Notebook-cell jp-mod-noOutputs" id="cell-id=590d1d5a">
 <div class="jp-Cell-inputWrapper" tabindex="0">
 <div class="jp-Collapser jp-InputCollapser jp-Cell-inputCollapser">
 </div>
@@ -7828,7 +7828,7 @@ a.anchor-link {
 </div>
 </div>
 </div>
-</div><div class="jp-Cell jp-CodeCell jp-Notebook-cell" id="cell-id=82780930">
+</div><div class="jp-Cell jp-CodeCell jp-Notebook-cell" id="cell-id=d89d251d">
 <div class="jp-Cell-inputWrapper" tabindex="0">
 <div class="jp-Collapser jp-InputCollapser jp-Cell-inputCollapser">
 </div>
@@ -7843,13 +7843,16 @@ a.anchor-link {
 
 <span class="n">latih</span> <span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">read_csv</span><span class="p">(</span><span class="s1">'../data/processed/latih.csv'</span><span class="p">,</span> <span class="n">parse_dates</span><span class="o">=</span><span class="p">[</span><span class="s1">'Date'</span><span class="p">])</span>
 <span class="n">uji</span> <span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">read_csv</span><span class="p">(</span><span class="s1">'../data/processed/uji.csv'</span><span class="p">,</span> <span class="n">parse_dates</span><span class="o">=</span><span class="p">[</span><span class="s1">'Date'</span><span class="p">])</span>
-<span class="n">model</span> <span class="o">=</span> <span class="n">joblib</span><span class="o">.</span><span class="n">load</span><span class="p">(</span><span class="s1">'../models/model_terbaik.pkl'</span><span class="p">)</span>
 <span class="k">with</span> <span class="nb">open</span><span class="p">(</span><span class="s1">'../models/info_model.json'</span><span class="p">)</span> <span class="k">as</span> <span class="n">f</span><span class="p">:</span>
     <span class="n">info</span> <span class="o">=</span> <span class="n">json</span><span class="o">.</span><span class="n">load</span><span class="p">(</span><span class="n">f</span><span class="p">)</span>
+<span class="n">info_1</span> <span class="o">=</span> <span class="n">info</span><span class="p">[</span><span class="s1">'iterasi_1'</span><span class="p">]</span>
+<span class="n">model_1</span> <span class="o">=</span> <span class="n">joblib</span><span class="o">.</span><span class="n">load</span><span class="p">(</span><span class="s1">'../models/model_iterasi1.pkl'</span><span class="p">)</span>   <span class="c1"># iterasi 1: dengan kurs</span>
+<span class="n">model</span> <span class="o">=</span> <span class="n">joblib</span><span class="o">.</span><span class="n">load</span><span class="p">(</span><span class="s1">'../models/model_terbaik.pkl'</span><span class="p">)</span>      <span class="c1"># iterasi 2: model akhir</span>
 <span class="n">FITUR</span> <span class="o">=</span> <span class="n">info</span><span class="p">[</span><span class="s1">'fitur'</span><span class="p">]</span>
-<span class="n">X_uji</span><span class="p">,</span> <span class="n">y_uji</span> <span class="o">=</span> <span class="n">uji</span><span class="p">[</span><span class="n">FITUR</span><span class="p">],</span> <span class="n">uji</span><span class="p">[</span><span class="s1">'target'</span><span class="p">]</span>
-<span class="nb">print</span><span class="p">(</span><span class="s1">'Model  :'</span><span class="p">,</span> <span class="n">info</span><span class="p">[</span><span class="s1">'model'</span><span class="p">])</span>
-<span class="nb">print</span><span class="p">(</span><span class="s1">'Data uji:'</span><span class="p">,</span> <span class="nb">len</span><span class="p">(</span><span class="n">uji</span><span class="p">),</span> <span class="s1">'hari,'</span><span class="p">,</span> <span class="n">uji</span><span class="p">[</span><span class="s1">'Date'</span><span class="p">]</span><span class="o">.</span><span class="n">min</span><span class="p">()</span><span class="o">.</span><span class="n">date</span><span class="p">(),</span> <span class="s1">'s.d.'</span><span class="p">,</span> <span class="n">uji</span><span class="p">[</span><span class="s1">'Date'</span><span class="p">]</span><span class="o">.</span><span class="n">max</span><span class="p">()</span><span class="o">.</span><span class="n">date</span><span class="p">())</span>
+<span class="n">X_1</span><span class="p">,</span> <span class="n">X_uji</span><span class="p">,</span> <span class="n">y_uji</span> <span class="o">=</span> <span class="n">uji</span><span class="p">[</span><span class="n">info_1</span><span class="p">[</span><span class="s1">'fitur'</span><span class="p">]],</span> <span class="n">uji</span><span class="p">[</span><span class="n">FITUR</span><span class="p">],</span> <span class="n">uji</span><span class="p">[</span><span class="s1">'target'</span><span class="p">]</span>
+<span class="nb">print</span><span class="p">(</span><span class="s1">'Iterasi 1:'</span><span class="p">,</span> <span class="n">info_1</span><span class="p">[</span><span class="s1">'model'</span><span class="p">],</span> <span class="sa">f</span><span class="s2">"(</span><span class="si">{</span><span class="nb">len</span><span class="p">(</span><span class="n">info_1</span><span class="p">[</span><span class="s1">'fitur'</span><span class="p">])</span><span class="si">}</span><span class="s2"> fitur, dengan kurs)"</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="s1">'Iterasi 2:'</span><span class="p">,</span> <span class="n">info</span><span class="p">[</span><span class="s1">'model'</span><span class="p">],</span> <span class="sa">f</span><span class="s2">"(</span><span class="si">{</span><span class="nb">len</span><span class="p">(</span><span class="n">FITUR</span><span class="p">)</span><span class="si">}</span><span class="s2"> fitur, tanpa kurs) → model akhir"</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="s1">'Data uji :'</span><span class="p">,</span> <span class="nb">len</span><span class="p">(</span><span class="n">uji</span><span class="p">),</span> <span class="s1">'hari,'</span><span class="p">,</span> <span class="n">uji</span><span class="p">[</span><span class="s1">'Date'</span><span class="p">]</span><span class="o">.</span><span class="n">min</span><span class="p">()</span><span class="o">.</span><span class="n">date</span><span class="p">(),</span> <span class="s1">'s.d.'</span><span class="p">,</span> <span class="n">uji</span><span class="p">[</span><span class="s1">'Date'</span><span class="p">]</span><span class="o">.</span><span class="n">max</span><span class="p">()</span><span class="o">.</span><span class="n">date</span><span class="p">())</span>
 </pre></div>
 </div>
 </div>
@@ -7862,25 +7865,28 @@ a.anchor-link {
 <div class="jp-OutputArea-child">
 <div class="jp-OutputPrompt jp-OutputArea-prompt"></div>
 <div class="jp-RenderedText jp-OutputArea-output" data-mime-type="text/plain" tabindex="0">
-<pre>Model  : Logistic Regression
-Data uji: 812 hari, 2023-04-28 s.d. 2026-09-29
+<pre>Iterasi 1: Random Forest (6 fitur, dengan kurs)
+Iterasi 2: Logistic Regression (5 fitur, tanpa kurs) → model akhir
+Data uji : 812 hari, 2023-04-28 s.d. 2026-09-29
 </pre>
 </div>
 </div>
 </div>
 </div>
 </div>
-<div class="jp-Cell jp-MarkdownCell jp-Notebook-cell" id="cell-id=fc1f72b4">
+<div class="jp-Cell jp-MarkdownCell jp-Notebook-cell" id="cell-id=53f4c6a9">
 <div class="jp-Cell-inputWrapper" tabindex="0">
 <div class="jp-Collapser jp-InputCollapser jp-Cell-inputCollapser">
 </div>
 <div class="jp-InputArea jp-Cell-inputArea"><div class="jp-InputPrompt jp-InputArea-prompt">
 </div><div class="jp-RenderedHTMLCommon jp-RenderedMarkdown jp-MarkdownOutput" data-mime-type="text/markdown">
+<p>Data uji dipakai pada <strong>kedua iterasi</strong>: iterasi 2 dibuat setelah hasil uji iterasi 1 terlihat. Hal ini dicatat
+sebagai keterbatasan di Unit 11.</p>
 <h2 id="1.-Hasil-model-dan-baseline-pada-data-uji">1. Hasil model dan baseline pada data uji<a class="anchor-link" href="#1.-Hasil-model-dan-baseline-pada-data-uji">¶</a></h2>
 </div>
 </div>
 </div>
-</div><div class="jp-Cell jp-CodeCell jp-Notebook-cell" id="cell-id=8971555a">
+</div><div class="jp-Cell jp-CodeCell jp-Notebook-cell" id="cell-id=f389adc5">
 <div class="jp-Cell-inputWrapper" tabindex="0">
 <div class="jp-Collapser jp-InputCollapser jp-Cell-inputCollapser">
 </div>
@@ -7888,20 +7894,21 @@ Data uji: 812 hari, 2023-04-28 s.d. 2026-09-29
 <div class="jp-InputPrompt jp-InputArea-prompt">In [3]:</div>
 <div class="jp-CodeMirrorEditor jp-Editor jp-InputArea-editor" data-type="inline">
 <div class="cm-editor cm-s-jupyter">
-<div class="highlight hl-ipython3"><pre><span></span><span class="n">tebakan</span> <span class="o">=</span> <span class="n">model</span><span class="o">.</span><span class="n">predict</span><span class="p">(</span><span class="n">X_uji</span><span class="p">)</span>
-<span class="n">peluang</span> <span class="o">=</span> <span class="n">model</span><span class="o">.</span><span class="n">predict_proba</span><span class="p">(</span><span class="n">X_uji</span><span class="p">)[:,</span> <span class="mi">1</span><span class="p">]</span>
+<div class="highlight hl-ipython3"><pre><span></span><span class="k">def</span><span class="w"> </span><span class="nf">skor</span><span class="p">(</span><span class="n">nama</span><span class="p">,</span> <span class="n">tebak</span><span class="p">,</span> <span class="n">peluang</span><span class="p">):</span>
+    <span class="k">return</span> <span class="p">{</span><span class="s1">'Model'</span><span class="p">:</span> <span class="n">nama</span><span class="p">,</span> <span class="s1">'Accuracy'</span><span class="p">:</span> <span class="n">accuracy_score</span><span class="p">(</span><span class="n">y_uji</span><span class="p">,</span> <span class="n">tebak</span><span class="p">),</span>
+            <span class="s1">'F1-macro'</span><span class="p">:</span> <span class="n">f1_score</span><span class="p">(</span><span class="n">y_uji</span><span class="p">,</span> <span class="n">tebak</span><span class="p">,</span> <span class="n">average</span><span class="o">=</span><span class="s1">'macro'</span><span class="p">),</span> <span class="s1">'ROC-AUC'</span><span class="p">:</span> <span class="n">roc_auc_score</span><span class="p">(</span><span class="n">y_uji</span><span class="p">,</span> <span class="n">peluang</span><span class="p">)}</span>
 
-<span class="n">baseline</span> <span class="o">=</span> <span class="n">DummyClassifier</span><span class="p">(</span><span class="n">strategy</span><span class="o">=</span><span class="s1">'most_frequent'</span><span class="p">)</span><span class="o">.</span><span class="n">fit</span><span class="p">(</span><span class="n">latih</span><span class="p">[</span><span class="n">FITUR</span><span class="p">],</span> <span class="n">latih</span><span class="p">[</span><span class="s1">'target'</span><span class="p">])</span>
-<span class="n">tebak_naik</span> <span class="o">=</span> <span class="n">baseline</span><span class="o">.</span><span class="n">predict</span><span class="p">(</span><span class="n">X_uji</span><span class="p">)</span>
+<span class="n">tebakan</span> <span class="o">=</span> <span class="n">model</span><span class="o">.</span><span class="n">predict</span><span class="p">(</span><span class="n">X_uji</span><span class="p">)</span>
+<span class="n">peluang</span> <span class="o">=</span> <span class="n">model</span><span class="o">.</span><span class="n">predict_proba</span><span class="p">(</span><span class="n">X_uji</span><span class="p">)[:,</span> <span class="mi">1</span><span class="p">]</span>
+<span class="n">tebak_naik</span> <span class="o">=</span> <span class="n">DummyClassifier</span><span class="p">(</span><span class="n">strategy</span><span class="o">=</span><span class="s1">'most_frequent'</span><span class="p">)</span><span class="o">.</span><span class="n">fit</span><span class="p">(</span><span class="n">latih</span><span class="p">[</span><span class="n">FITUR</span><span class="p">],</span> <span class="n">latih</span><span class="p">[</span><span class="s1">'target'</span><span class="p">])</span><span class="o">.</span><span class="n">predict</span><span class="p">(</span><span class="n">X_uji</span><span class="p">)</span>
 <span class="n">tebak_sp500</span> <span class="o">=</span> <span class="p">(</span><span class="n">X_uji</span><span class="p">[</span><span class="s1">'sp500_chg'</span><span class="p">]</span> <span class="o">&gt;</span> <span class="mi">0</span><span class="p">)</span><span class="o">.</span><span class="n">astype</span><span class="p">(</span><span class="nb">int</span><span class="p">)</span>
 
 <span class="n">tabel</span> <span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">DataFrame</span><span class="p">([</span>
-    <span class="p">{</span><span class="s1">'Model'</span><span class="p">:</span> <span class="n">info</span><span class="p">[</span><span class="s1">'model'</span><span class="p">],</span> <span class="s1">'Accuracy'</span><span class="p">:</span> <span class="n">accuracy_score</span><span class="p">(</span><span class="n">y_uji</span><span class="p">,</span> <span class="n">tebakan</span><span class="p">),</span>
-     <span class="s1">'F1-macro'</span><span class="p">:</span> <span class="n">f1_score</span><span class="p">(</span><span class="n">y_uji</span><span class="p">,</span> <span class="n">tebakan</span><span class="p">,</span> <span class="n">average</span><span class="o">=</span><span class="s1">'macro'</span><span class="p">),</span> <span class="s1">'ROC-AUC'</span><span class="p">:</span> <span class="n">roc_auc_score</span><span class="p">(</span><span class="n">y_uji</span><span class="p">,</span> <span class="n">peluang</span><span class="p">)},</span>
-    <span class="p">{</span><span class="s1">'Model'</span><span class="p">:</span> <span class="s1">'Selalu Naik (baseline)'</span><span class="p">,</span> <span class="s1">'Accuracy'</span><span class="p">:</span> <span class="n">accuracy_score</span><span class="p">(</span><span class="n">y_uji</span><span class="p">,</span> <span class="n">tebak_naik</span><span class="p">),</span>
-     <span class="s1">'F1-macro'</span><span class="p">:</span> <span class="n">f1_score</span><span class="p">(</span><span class="n">y_uji</span><span class="p">,</span> <span class="n">tebak_naik</span><span class="p">,</span> <span class="n">average</span><span class="o">=</span><span class="s1">'macro'</span><span class="p">),</span> <span class="s1">'ROC-AUC'</span><span class="p">:</span> <span class="mf">0.5</span><span class="p">},</span>
-    <span class="p">{</span><span class="s1">'Model'</span><span class="p">:</span> <span class="s1">'Ikuti S&amp;P 500 (baseline)'</span><span class="p">,</span> <span class="s1">'Accuracy'</span><span class="p">:</span> <span class="n">accuracy_score</span><span class="p">(</span><span class="n">y_uji</span><span class="p">,</span> <span class="n">tebak_sp500</span><span class="p">),</span>
-     <span class="s1">'F1-macro'</span><span class="p">:</span> <span class="n">f1_score</span><span class="p">(</span><span class="n">y_uji</span><span class="p">,</span> <span class="n">tebak_sp500</span><span class="p">,</span> <span class="n">average</span><span class="o">=</span><span class="s1">'macro'</span><span class="p">),</span> <span class="s1">'ROC-AUC'</span><span class="p">:</span> <span class="n">roc_auc_score</span><span class="p">(</span><span class="n">y_uji</span><span class="p">,</span> <span class="n">X_uji</span><span class="p">[</span><span class="s1">'sp500_chg'</span><span class="p">])},</span>
+    <span class="n">skor</span><span class="p">(</span><span class="sa">f</span><span class="s2">"Iterasi 2: </span><span class="si">{</span><span class="n">info</span><span class="p">[</span><span class="s1">'model'</span><span class="p">]</span><span class="si">}</span><span class="s2"> (</span><span class="si">{</span><span class="nb">len</span><span class="p">(</span><span class="n">FITUR</span><span class="p">)</span><span class="si">}</span><span class="s2"> fitur)"</span><span class="p">,</span> <span class="n">tebakan</span><span class="p">,</span> <span class="n">peluang</span><span class="p">),</span>
+    <span class="n">skor</span><span class="p">(</span><span class="s1">'Selalu Naik (baseline)'</span><span class="p">,</span> <span class="n">tebak_naik</span><span class="p">,</span> <span class="n">np</span><span class="o">.</span><span class="n">full</span><span class="p">(</span><span class="nb">len</span><span class="p">(</span><span class="n">uji</span><span class="p">),</span> <span class="mf">0.5</span><span class="p">)),</span>
+    <span class="n">skor</span><span class="p">(</span><span class="s1">'Ikuti S&amp;P 500 (baseline)'</span><span class="p">,</span> <span class="n">tebak_sp500</span><span class="p">,</span> <span class="n">X_uji</span><span class="p">[</span><span class="s1">'sp500_chg'</span><span class="p">]),</span>
+    <span class="n">skor</span><span class="p">(</span><span class="sa">f</span><span class="s2">"Iterasi 1: </span><span class="si">{</span><span class="n">info_1</span><span class="p">[</span><span class="s1">'model'</span><span class="p">]</span><span class="si">}</span><span class="s2"> (</span><span class="si">{</span><span class="nb">len</span><span class="p">(</span><span class="n">info_1</span><span class="p">[</span><span class="s1">'fitur'</span><span class="p">])</span><span class="si">}</span><span class="s2"> fitur)"</span><span class="p">,</span> <span class="n">model_1</span><span class="o">.</span><span class="n">predict</span><span class="p">(</span><span class="n">X_1</span><span class="p">),</span>
+         <span class="n">model_1</span><span class="o">.</span><span class="n">predict_proba</span><span class="p">(</span><span class="n">X_1</span><span class="p">)[:,</span> <span class="mi">1</span><span class="p">]),</span>
 <span class="p">])</span>
 <span class="n">tabel</span><span class="o">.</span><span class="n">round</span><span class="p">(</span><span class="mi">3</span><span class="p">)</span>
 </pre></div>
@@ -7943,7 +7950,7 @@ Data uji: 812 hari, 2023-04-28 s.d. 2026-09-29
 <tbody>
 <tr>
 <th>0</th>
-<td>Logistic Regression</td>
+<td>Iterasi 2: Logistic Regression (5 fitur)</td>
 <td>0.558</td>
 <td>0.554</td>
 <td>0.583</td>
@@ -7962,6 +7969,13 @@ Data uji: 812 hari, 2023-04-28 s.d. 2026-09-29
 <td>0.543</td>
 <td>0.575</td>
 </tr>
+<tr>
+<th>3</th>
+<td>Iterasi 1: Random Forest (6 fitur)</td>
+<td>0.543</td>
+<td>0.535</td>
+<td>0.577</td>
+</tr>
 </tbody>
 </table>
 </div>
@@ -7970,7 +7984,7 @@ Data uji: 812 hari, 2023-04-28 s.d. 2026-09-29
 </div>
 </div>
 </div>
-<div class="jp-Cell jp-MarkdownCell jp-Notebook-cell" id="cell-id=aa325a43">
+<div class="jp-Cell jp-MarkdownCell jp-Notebook-cell" id="cell-id=6063ce8d">
 <div class="jp-Cell-inputWrapper" tabindex="0">
 <div class="jp-Collapser jp-InputCollapser jp-Cell-inputCollapser">
 </div>
@@ -7980,7 +7994,7 @@ Data uji: 812 hari, 2023-04-28 s.d. 2026-09-29
 </div>
 </div>
 </div>
-</div><div class="jp-Cell jp-CodeCell jp-Notebook-cell" id="cell-id=cbac8cc3">
+</div><div class="jp-Cell jp-CodeCell jp-Notebook-cell" id="cell-id=1ef6530e">
 <div class="jp-Cell-inputWrapper" tabindex="0">
 <div class="jp-Collapser jp-InputCollapser jp-Cell-inputCollapser">
 </div>
@@ -7988,16 +8002,22 @@ Data uji: 812 hari, 2023-04-28 s.d. 2026-09-29
 <div class="jp-InputPrompt jp-InputArea-prompt">In [4]:</div>
 <div class="jp-CodeMirrorEditor jp-Editor jp-InputArea-editor" data-type="inline">
 <div class="cm-editor cm-s-jupyter">
-<div class="highlight hl-ipython3"><pre><span></span><span class="n">m</span> <span class="o">=</span> <span class="n">tabel</span><span class="o">.</span><span class="n">iloc</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span>
-<span class="n">cek</span> <span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">DataFrame</span><span class="p">([</span>
-    <span class="p">(</span><span class="s1">'Accuracy ≥ 0,55'</span><span class="p">,</span> <span class="nb">round</span><span class="p">(</span><span class="n">m</span><span class="p">[</span><span class="s1">'Accuracy'</span><span class="p">],</span> <span class="mi">3</span><span class="p">),</span> <span class="n">m</span><span class="p">[</span><span class="s1">'Accuracy'</span><span class="p">]</span> <span class="o">&gt;=</span> <span class="mf">0.55</span><span class="p">),</span>
-    <span class="p">(</span><span class="s1">'F1-macro ≥ 0,55'</span><span class="p">,</span> <span class="nb">round</span><span class="p">(</span><span class="n">m</span><span class="p">[</span><span class="s1">'F1-macro'</span><span class="p">],</span> <span class="mi">3</span><span class="p">),</span> <span class="n">m</span><span class="p">[</span><span class="s1">'F1-macro'</span><span class="p">]</span> <span class="o">&gt;=</span> <span class="mf">0.55</span><span class="p">),</span>
-    <span class="p">(</span><span class="s1">'ROC-AUC ≥ 0,58'</span><span class="p">,</span> <span class="nb">round</span><span class="p">(</span><span class="n">m</span><span class="p">[</span><span class="s1">'ROC-AUC'</span><span class="p">],</span> <span class="mi">3</span><span class="p">),</span> <span class="n">m</span><span class="p">[</span><span class="s1">'ROC-AUC'</span><span class="p">]</span> <span class="o">&gt;=</span> <span class="mf">0.58</span><span class="p">),</span>
-    <span class="p">(</span><span class="s1">'Accuracy &gt; baseline "Selalu Naik"'</span><span class="p">,</span> <span class="nb">round</span><span class="p">(</span><span class="n">m</span><span class="p">[</span><span class="s1">'Accuracy'</span><span class="p">]</span> <span class="o">-</span> <span class="n">tabel</span><span class="o">.</span><span class="n">iloc</span><span class="p">[</span><span class="mi">1</span><span class="p">][</span><span class="s1">'Accuracy'</span><span class="p">],</span> <span class="mi">3</span><span class="p">),</span>
-     <span class="n">m</span><span class="p">[</span><span class="s1">'Accuracy'</span><span class="p">]</span> <span class="o">&gt;</span> <span class="n">tabel</span><span class="o">.</span><span class="n">iloc</span><span class="p">[</span><span class="mi">1</span><span class="p">][</span><span class="s1">'Accuracy'</span><span class="p">]),</span>
-<span class="p">],</span> <span class="n">columns</span><span class="o">=</span><span class="p">[</span><span class="s1">'Target'</span><span class="p">,</span> <span class="s1">'Nilai'</span><span class="p">,</span> <span class="s1">'Tercapai'</span><span class="p">])</span>
-<span class="n">cek</span><span class="p">[</span><span class="s1">'Tercapai'</span><span class="p">]</span> <span class="o">=</span> <span class="n">cek</span><span class="p">[</span><span class="s1">'Tercapai'</span><span class="p">]</span><span class="o">.</span><span class="n">map</span><span class="p">({</span><span class="kc">True</span><span class="p">:</span> <span class="s1">'Ya'</span><span class="p">,</span> <span class="kc">False</span><span class="p">:</span> <span class="s1">'Tidak'</span><span class="p">})</span>
-<span class="n">cek</span>
+<div class="highlight hl-ipython3"><pre><span></span><span class="k">def</span><span class="w"> </span><span class="nf">cek_target</span><span class="p">(</span><span class="n">r</span><span class="p">):</span>
+    <span class="n">selisih</span> <span class="o">=</span> <span class="n">r</span><span class="p">[</span><span class="s1">'Accuracy'</span><span class="p">]</span> <span class="o">-</span> <span class="n">tabel</span><span class="o">.</span><span class="n">iloc</span><span class="p">[</span><span class="mi">1</span><span class="p">][</span><span class="s1">'Accuracy'</span><span class="p">]</span>
+    <span class="n">hasil</span> <span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">DataFrame</span><span class="p">([</span>
+        <span class="p">(</span><span class="s1">'Accuracy ≥ 0,55'</span><span class="p">,</span> <span class="n">r</span><span class="p">[</span><span class="s1">'Accuracy'</span><span class="p">],</span> <span class="n">r</span><span class="p">[</span><span class="s1">'Accuracy'</span><span class="p">]</span> <span class="o">&gt;=</span> <span class="mf">0.55</span><span class="p">),</span>
+        <span class="p">(</span><span class="s1">'F1-macro ≥ 0,55'</span><span class="p">,</span> <span class="n">r</span><span class="p">[</span><span class="s1">'F1-macro'</span><span class="p">],</span> <span class="n">r</span><span class="p">[</span><span class="s1">'F1-macro'</span><span class="p">]</span> <span class="o">&gt;=</span> <span class="mf">0.55</span><span class="p">),</span>
+        <span class="p">(</span><span class="s1">'ROC-AUC ≥ 0,58'</span><span class="p">,</span> <span class="n">r</span><span class="p">[</span><span class="s1">'ROC-AUC'</span><span class="p">],</span> <span class="n">r</span><span class="p">[</span><span class="s1">'ROC-AUC'</span><span class="p">]</span> <span class="o">&gt;=</span> <span class="mf">0.58</span><span class="p">),</span>
+        <span class="p">(</span><span class="s1">'Accuracy &gt; baseline "Selalu Naik"'</span><span class="p">,</span> <span class="n">selisih</span><span class="p">,</span> <span class="n">selisih</span> <span class="o">&gt;</span> <span class="mi">0</span><span class="p">),</span>
+    <span class="p">],</span> <span class="n">columns</span><span class="o">=</span><span class="p">[</span><span class="s1">'Target'</span><span class="p">,</span> <span class="s1">'Nilai'</span><span class="p">,</span> <span class="s1">'Tercapai'</span><span class="p">])</span>
+    <span class="n">hasil</span><span class="p">[</span><span class="s1">'Nilai'</span><span class="p">]</span> <span class="o">=</span> <span class="n">hasil</span><span class="p">[</span><span class="s1">'Nilai'</span><span class="p">]</span><span class="o">.</span><span class="n">round</span><span class="p">(</span><span class="mi">3</span><span class="p">)</span>
+    <span class="n">hasil</span><span class="p">[</span><span class="s1">'Tercapai'</span><span class="p">]</span> <span class="o">=</span> <span class="n">hasil</span><span class="p">[</span><span class="s1">'Tercapai'</span><span class="p">]</span><span class="o">.</span><span class="n">map</span><span class="p">({</span><span class="kc">True</span><span class="p">:</span> <span class="s1">'Ya'</span><span class="p">,</span> <span class="kc">False</span><span class="p">:</span> <span class="s1">'Tidak'</span><span class="p">})</span>
+    <span class="k">return</span> <span class="n">hasil</span>
+
+<span class="n">cek</span> <span class="o">=</span> <span class="n">cek_target</span><span class="p">(</span><span class="n">tabel</span><span class="o">.</span><span class="n">iloc</span><span class="p">[</span><span class="mi">0</span><span class="p">])</span>     <span class="c1"># iterasi 2 (model akhir)</span>
+<span class="n">cek_1</span> <span class="o">=</span> <span class="n">cek_target</span><span class="p">(</span><span class="n">tabel</span><span class="o">.</span><span class="n">iloc</span><span class="p">[</span><span class="mi">3</span><span class="p">])</span>   <span class="c1"># iterasi 1</span>
+<span class="n">pd</span><span class="o">.</span><span class="n">concat</span><span class="p">({</span><span class="s1">'Iterasi 1 (dengan kurs)'</span><span class="p">:</span> <span class="n">cek_1</span><span class="o">.</span><span class="n">set_index</span><span class="p">(</span><span class="s1">'Target'</span><span class="p">),</span>
+           <span class="s1">'Iterasi 2 (tanpa kurs)'</span><span class="p">:</span> <span class="n">cek</span><span class="o">.</span><span class="n">set_index</span><span class="p">(</span><span class="s1">'Target'</span><span class="p">)},</span> <span class="n">axis</span><span class="o">=</span><span class="mi">1</span><span class="p">)</span>
 </pre></div>
 </div>
 </div>
@@ -8020,41 +8040,62 @@ Data uji: 812 hari, 2023-04-28 s.d. 2026-09-29
         vertical-align: top;
     }
 
-    .dataframe thead th {
+    .dataframe thead tr th {
+        text-align: left;
+    }
+
+    .dataframe thead tr:last-of-type th {
         text-align: right;
     }
 </style>
 <table border="1" class="dataframe">
 <thead>
-<tr style="text-align: right;">
+<tr>
 <th></th>
-<th>Target</th>
+<th colspan="2" halign="left">Iterasi 1 (dengan kurs)</th>
+<th colspan="2" halign="left">Iterasi 2 (tanpa kurs)</th>
+</tr>
+<tr>
+<th></th>
 <th>Nilai</th>
 <th>Tercapai</th>
+<th>Nilai</th>
+<th>Tercapai</th>
+</tr>
+<tr>
+<th>Target</th>
+<th></th>
+<th></th>
+<th></th>
+<th></th>
 </tr>
 </thead>
 <tbody>
 <tr>
-<th>0</th>
-<td>Accuracy ≥ 0,55</td>
+<th>Accuracy ≥ 0,55</th>
+<td>0.543</td>
+<td>Tidak</td>
 <td>0.558</td>
 <td>Ya</td>
 </tr>
 <tr>
-<th>1</th>
-<td>F1-macro ≥ 0,55</td>
+<th>F1-macro ≥ 0,55</th>
+<td>0.535</td>
+<td>Tidak</td>
 <td>0.554</td>
 <td>Ya</td>
 </tr>
 <tr>
-<th>2</th>
-<td>ROC-AUC ≥ 0,58</td>
+<th>ROC-AUC ≥ 0,58</th>
+<td>0.577</td>
+<td>Tidak</td>
 <td>0.583</td>
 <td>Ya</td>
 </tr>
 <tr>
-<th>3</th>
-<td>Accuracy &gt; baseline "Selalu Naik"</td>
+<th>Accuracy &gt; baseline "Selalu Naik"</th>
+<td>0.021</td>
+<td>Ya</td>
 <td>0.036</td>
 <td>Ya</td>
 </tr>
@@ -8066,17 +8107,17 @@ Data uji: 812 hari, 2023-04-28 s.d. 2026-09-29
 </div>
 </div>
 </div>
-<div class="jp-Cell jp-MarkdownCell jp-Notebook-cell" id="cell-id=e7360e95">
+<div class="jp-Cell jp-MarkdownCell jp-Notebook-cell" id="cell-id=1b0fc08d">
 <div class="jp-Cell-inputWrapper" tabindex="0">
 <div class="jp-Collapser jp-InputCollapser jp-Cell-inputCollapser">
 </div>
 <div class="jp-InputArea jp-Cell-inputArea"><div class="jp-InputPrompt jp-InputArea-prompt">
 </div><div class="jp-RenderedHTMLCommon jp-RenderedMarkdown jp-MarkdownOutput" data-mime-type="text/markdown">
-<h2 id="3.-Matriks-konfusi">3. Matriks konfusi<a class="anchor-link" href="#3.-Matriks-konfusi">¶</a></h2>
+<h2 id="3.-Matriks-konfusi-model-akhir">3. Matriks konfusi model akhir<a class="anchor-link" href="#3.-Matriks-konfusi-model-akhir">¶</a></h2>
 </div>
 </div>
 </div>
-</div><div class="jp-Cell jp-CodeCell jp-Notebook-cell" id="cell-id=fe7cd668">
+</div><div class="jp-Cell jp-CodeCell jp-Notebook-cell" id="cell-id=758b13a9">
 <div class="jp-Cell-inputWrapper" tabindex="0">
 <div class="jp-Collapser jp-InputCollapser jp-Cell-inputCollapser">
 </div>
@@ -8122,17 +8163,17 @@ weighted avg       0.56      0.56      0.56       812
 </div>
 </div>
 </div>
-<div class="jp-Cell jp-MarkdownCell jp-Notebook-cell" id="cell-id=cea9edbd">
+<div class="jp-Cell jp-MarkdownCell jp-Notebook-cell" id="cell-id=8d553310">
 <div class="jp-Cell-inputWrapper" tabindex="0">
 <div class="jp-Collapser jp-InputCollapser jp-Cell-inputCollapser">
 </div>
 <div class="jp-InputArea jp-Cell-inputArea"><div class="jp-InputPrompt jp-InputArea-prompt">
 </div><div class="jp-RenderedHTMLCommon jp-RenderedMarkdown jp-MarkdownOutput" data-mime-type="text/markdown">
-<h2 id="4.-Fitur-mana-yang-paling-berpengaruh?">4. Fitur mana yang paling berpengaruh?<a class="anchor-link" href="#4.-Fitur-mana-yang-paling-berpengaruh?">¶</a></h2>
+<h2 id="4.-Fitur-mana-yang-paling-berpengaruh-di-model-akhir?">4. Fitur mana yang paling berpengaruh di model akhir?<a class="anchor-link" href="#4.-Fitur-mana-yang-paling-berpengaruh-di-model-akhir?">¶</a></h2>
 </div>
 </div>
 </div>
-</div><div class="jp-Cell jp-CodeCell jp-Notebook-cell" id="cell-id=1c0f5120">
+</div><div class="jp-Cell jp-CodeCell jp-Notebook-cell" id="cell-id=5ece067a">
 <div class="jp-Cell-inputWrapper" tabindex="0">
 <div class="jp-Collapser jp-InputCollapser jp-Cell-inputCollapser">
 </div>
@@ -8175,7 +8216,7 @@ weighted avg       0.56      0.56      0.56       812
 </div>
 </div>
 </div>
-</div><div class="jp-Cell jp-CodeCell jp-Notebook-cell" id="cell-id=b94b6687">
+</div><div class="jp-Cell jp-CodeCell jp-Notebook-cell" id="cell-id=3e515e33">
 <div class="jp-Cell-inputWrapper" tabindex="0">
 <div class="jp-Collapser jp-InputCollapser jp-Cell-inputCollapser">
 </div>
@@ -8185,16 +8226,19 @@ weighted avg       0.56      0.56      0.56       812
 <div class="cm-editor cm-s-jupyter">
 <div class="highlight hl-ipython3"><pre><span></span><span class="n">hasil</span> <span class="o">=</span> <span class="p">{</span><span class="s1">'model'</span><span class="p">:</span> <span class="n">info</span><span class="p">[</span><span class="s1">'model'</span><span class="p">],</span> <span class="s1">'jumlah_hari_uji'</span><span class="p">:</span> <span class="nb">len</span><span class="p">(</span><span class="n">uji</span><span class="p">),</span>
          <span class="s1">'periode_uji'</span><span class="p">:</span> <span class="p">[</span><span class="nb">str</span><span class="p">(</span><span class="n">uji</span><span class="p">[</span><span class="s1">'Date'</span><span class="p">]</span><span class="o">.</span><span class="n">min</span><span class="p">()</span><span class="o">.</span><span class="n">date</span><span class="p">()),</span> <span class="nb">str</span><span class="p">(</span><span class="n">uji</span><span class="p">[</span><span class="s1">'Date'</span><span class="p">]</span><span class="o">.</span><span class="n">max</span><span class="p">()</span><span class="o">.</span><span class="n">date</span><span class="p">())],</span>
-         <span class="s1">'hasil'</span><span class="p">:</span> <span class="n">tabel</span><span class="o">.</span><span class="n">round</span><span class="p">(</span><span class="mi">4</span><span class="p">)</span><span class="o">.</span><span class="n">to_dict</span><span class="p">(</span><span class="s1">'records'</span><span class="p">),</span>
+         <span class="s1">'hasil'</span><span class="p">:</span> <span class="n">tabel</span><span class="o">.</span><span class="n">round</span><span class="p">(</span><span class="mi">6</span><span class="p">)</span><span class="o">.</span><span class="n">to_dict</span><span class="p">(</span><span class="s1">'records'</span><span class="p">),</span>
          <span class="s1">'target'</span><span class="p">:</span> <span class="n">cek</span><span class="o">.</span><span class="n">to_dict</span><span class="p">(</span><span class="s1">'records'</span><span class="p">),</span>
-         <span class="s1">'fitur_terpenting'</span><span class="p">:</span> <span class="nb">list</span><span class="p">(</span><span class="n">penting</span><span class="o">.</span><span class="n">index</span><span class="p">[::</span><span class="o">-</span><span class="mi">1</span><span class="p">][:</span><span class="mi">3</span><span class="p">])}</span>
+         <span class="s1">'fitur_terpenting'</span><span class="p">:</span> <span class="nb">list</span><span class="p">(</span><span class="n">penting</span><span class="o">.</span><span class="n">index</span><span class="p">[::</span><span class="o">-</span><span class="mi">1</span><span class="p">][:</span><span class="mi">3</span><span class="p">]),</span>
+         <span class="s1">'iterasi_1'</span><span class="p">:</span> <span class="p">{</span><span class="s1">'model'</span><span class="p">:</span> <span class="n">info_1</span><span class="p">[</span><span class="s1">'model'</span><span class="p">],</span> <span class="s1">'fitur'</span><span class="p">:</span> <span class="n">info_1</span><span class="p">[</span><span class="s1">'fitur'</span><span class="p">],</span> <span class="s1">'target'</span><span class="p">:</span> <span class="n">cek_1</span><span class="o">.</span><span class="n">to_dict</span><span class="p">(</span><span class="s1">'records'</span><span class="p">)}}</span>
 <span class="k">with</span> <span class="nb">open</span><span class="p">(</span><span class="s1">'../models/hasil_evaluasi.json'</span><span class="p">,</span> <span class="s1">'w'</span><span class="p">)</span> <span class="k">as</span> <span class="n">f</span><span class="p">:</span>
     <span class="n">json</span><span class="o">.</span><span class="n">dump</span><span class="p">(</span><span class="n">hasil</span><span class="p">,</span> <span class="n">f</span><span class="p">,</span> <span class="n">indent</span><span class="o">=</span><span class="mi">2</span><span class="p">,</span> <span class="n">default</span><span class="o">=</span><span class="k">lambda</span> <span class="n">o</span><span class="p">:</span> <span class="n">o</span><span class="o">.</span><span class="n">item</span><span class="p">()</span> <span class="k">if</span> <span class="nb">hasattr</span><span class="p">(</span><span class="n">o</span><span class="p">,</span> <span class="s1">'item'</span><span class="p">)</span> <span class="k">else</span> <span class="nb">str</span><span class="p">(</span><span class="n">o</span><span class="p">))</span>
 
+<span class="n">m</span> <span class="o">=</span> <span class="n">tabel</span><span class="o">.</span><span class="n">iloc</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span>
 <span class="nb">print</span><span class="p">(</span><span class="s1">'KESIMPULAN'</span><span class="p">)</span>
-<span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">"- Accuracy </span><span class="si">{</span><span class="n">m</span><span class="p">[</span><span class="s1">'Accuracy'</span><span class="p">]</span><span class="si">:</span><span class="s2">.3f</span><span class="si">}</span><span class="s2">, F1-macro </span><span class="si">{</span><span class="n">m</span><span class="p">[</span><span class="s1">'F1-macro'</span><span class="p">]</span><span class="si">:</span><span class="s2">.3f</span><span class="si">}</span><span class="s2">, ROC-AUC </span><span class="si">{</span><span class="n">m</span><span class="p">[</span><span class="s1">'ROC-AUC'</span><span class="p">]</span><span class="si">:</span><span class="s2">.3f</span><span class="si">}</span><span class="s2">"</span><span class="p">)</span>
-<span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">"- Target tercapai: </span><span class="si">{</span><span class="p">(</span><span class="n">cek</span><span class="p">[</span><span class="s1">'Tercapai'</span><span class="p">]</span><span class="w"> </span><span class="o">==</span><span class="w"> </span><span class="s1">'Ya'</span><span class="p">)</span><span class="o">.</span><span class="n">sum</span><span class="p">()</span><span class="si">}</span><span class="s2"> dari </span><span class="si">{</span><span class="nb">len</span><span class="p">(</span><span class="n">cek</span><span class="p">)</span><span class="si">}</span><span class="s2">"</span><span class="p">)</span>
-<span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">"- Dibanding 'Ikuti S&amp;P 500': selisih accuracy </span><span class="si">{</span><span class="n">m</span><span class="p">[</span><span class="s1">'Accuracy'</span><span class="p">]</span><span class="w"> </span><span class="o">-</span><span class="w"> </span><span class="n">tabel</span><span class="o">.</span><span class="n">iloc</span><span class="p">[</span><span class="mi">2</span><span class="p">][</span><span class="s1">'Accuracy'</span><span class="p">]</span><span class="si">:</span><span class="s2">+.3f</span><span class="si">}</span><span class="s2">"</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">"- Iterasi 1 (</span><span class="si">{</span><span class="n">info_1</span><span class="p">[</span><span class="s1">'model'</span><span class="p">]</span><span class="si">}</span><span class="s2">, dengan kurs): target tercapai </span><span class="si">{</span><span class="p">(</span><span class="n">cek_1</span><span class="p">[</span><span class="s1">'Tercapai'</span><span class="p">]</span><span class="w"> </span><span class="o">==</span><span class="w"> </span><span class="s1">'Ya'</span><span class="p">)</span><span class="o">.</span><span class="n">sum</span><span class="p">()</span><span class="si">}</span><span class="s2"> dari </span><span class="si">{</span><span class="nb">len</span><span class="p">(</span><span class="n">cek_1</span><span class="p">)</span><span class="si">}</span><span class="s2">"</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">"- Iterasi 2 (</span><span class="si">{</span><span class="n">info</span><span class="p">[</span><span class="s1">'model'</span><span class="p">]</span><span class="si">}</span><span class="s2">, tanpa kurs): accuracy </span><span class="si">{</span><span class="n">m</span><span class="p">[</span><span class="s1">'Accuracy'</span><span class="p">]</span><span class="si">:</span><span class="s2">.3f</span><span class="si">}</span><span class="s2">, F1-macro </span><span class="si">{</span><span class="n">m</span><span class="p">[</span><span class="s1">'F1-macro'</span><span class="p">]</span><span class="si">:</span><span class="s2">.3f</span><span class="si">}</span><span class="s2">, "</span>
+      <span class="sa">f</span><span class="s2">"ROC-AUC </span><span class="si">{</span><span class="n">m</span><span class="p">[</span><span class="s1">'ROC-AUC'</span><span class="p">]</span><span class="si">:</span><span class="s2">.3f</span><span class="si">}</span><span class="s2">; target tercapai </span><span class="si">{</span><span class="p">(</span><span class="n">cek</span><span class="p">[</span><span class="s1">'Tercapai'</span><span class="p">]</span><span class="w"> </span><span class="o">==</span><span class="w"> </span><span class="s1">'Ya'</span><span class="p">)</span><span class="o">.</span><span class="n">sum</span><span class="p">()</span><span class="si">}</span><span class="s2"> dari </span><span class="si">{</span><span class="nb">len</span><span class="p">(</span><span class="n">cek</span><span class="p">)</span><span class="si">}</span><span class="s2">"</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">"- Model akhir dibanding 'Ikuti S&amp;P 500': selisih accuracy </span><span class="si">{</span><span class="n">m</span><span class="p">[</span><span class="s1">'Accuracy'</span><span class="p">]</span><span class="w"> </span><span class="o">-</span><span class="w"> </span><span class="n">tabel</span><span class="o">.</span><span class="n">iloc</span><span class="p">[</span><span class="mi">2</span><span class="p">][</span><span class="s1">'Accuracy'</span><span class="p">]</span><span class="si">:</span><span class="s2">+.3f</span><span class="si">}</span><span class="s2">"</span><span class="p">)</span>
 </pre></div>
 </div>
 </div>
@@ -8208,9 +8252,9 @@ weighted avg       0.56      0.56      0.56       812
 <div class="jp-OutputPrompt jp-OutputArea-prompt"></div>
 <div class="jp-RenderedText jp-OutputArea-output" data-mime-type="text/plain" tabindex="0">
 <pre>KESIMPULAN
-- Accuracy 0.558, F1-macro 0.554, ROC-AUC 0.583
-- Target tercapai: 4 dari 4
-- Dibanding 'Ikuti S&amp;P 500': selisih accuracy +0.012
+- Iterasi 1 (Random Forest, dengan kurs): target tercapai 1 dari 4
+- Iterasi 2 (Logistic Regression, tanpa kurs): accuracy 0.558, F1-macro 0.554, ROC-AUC 0.583; target tercapai 4 dari 4
+- Model akhir dibanding 'Ikuti S&amp;P 500': selisih accuracy +0.012
 </pre>
 </div>
 </div>

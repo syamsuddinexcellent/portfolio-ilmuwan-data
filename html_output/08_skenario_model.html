@@ -7796,7 +7796,7 @@ a.anchor-link {
 <!-- End of mermaid configuration --></head>
 <body class="jp-Notebook" data-jp-theme-light="true" data-jp-theme-name="JupyterLab Light">
 <main>
-<div class="jp-Cell jp-MarkdownCell jp-Notebook-cell" id="cell-id=8adcf178">
+<div class="jp-Cell jp-MarkdownCell jp-Notebook-cell" id="cell-id=5adb3818">
 <div class="jp-Cell-inputWrapper" tabindex="0">
 <div class="jp-Collapser jp-InputCollapser jp-Cell-inputCollapser">
 </div>
@@ -7807,7 +7807,7 @@ a.anchor-link {
 </div>
 </div>
 </div>
-</div><div class="jp-Cell jp-CodeCell jp-Notebook-cell jp-mod-noOutputs" id="cell-id=f5dcbc75">
+</div><div class="jp-Cell jp-CodeCell jp-Notebook-cell jp-mod-noOutputs" id="cell-id=82c0aa51">
 <div class="jp-Cell-inputWrapper" tabindex="0">
 <div class="jp-Collapser jp-InputCollapser jp-Cell-inputCollapser">
 </div>
@@ -7829,7 +7829,7 @@ a.anchor-link {
 </div>
 </div>
 </div>
-<div class="jp-Cell jp-MarkdownCell jp-Notebook-cell" id="cell-id=be1227ce">
+<div class="jp-Cell jp-MarkdownCell jp-Notebook-cell" id="cell-id=2a3dde72">
 <div class="jp-Cell-inputWrapper" tabindex="0">
 <div class="jp-Collapser jp-InputCollapser jp-Cell-inputCollapser">
 </div>
@@ -7872,13 +7872,35 @@ a.anchor-link {
 </tbody>
 </table>
 <p>Pengaturan model 3–5 menggunakan <code>class_weight='balanced'</code> agar model tidak hanya menebak kelas yang lebih banyak.</p>
+<h2 id="Dua-iterasi-fitur">Dua iterasi fitur<a class="anchor-link" href="#Dua-iterasi-fitur">¶</a></h2><table>
+<thead>
+<tr>
+<th>Iterasi</th>
+<th>Fitur</th>
+<th>Keterangan</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>1</td>
+<td>6 fitur: IHSG, S&amp;P 500, VIX, minyak, emas, <strong>kurs USD/IDR</strong></td>
+<td>Rencana awal (Unit 2 dan 5)</td>
+</tr>
+<tr>
+<td>2</td>
+<td>5 fitur: <strong>tanpa kurs</strong></td>
+<td>Dibuat setelah hasil iterasi 1 ditinjau (Unit 11): kurs hampir tidak berhubungan dengan IHSG besok</td>
+</tr>
+</tbody>
+</table>
+<p>Pada setiap iterasi, kelima skenario di atas dibandingkan dengan cara yang sama.</p>
 <h2 id="Cara-memilih-model-terbaik">Cara memilih model terbaik<a class="anchor-link" href="#Cara-memilih-model-terbaik">¶</a></h2><p>Model dibandingkan dengan <strong>validasi silang deret waktu (<code>TimeSeriesSplit</code>, 5 bagian)</strong> pada data latih:
 model dilatih dengan data lama lalu diuji pada periode sesudahnya, diulang 5 kali. Model dengan <strong>accuracy rata-rata
-tertinggi</strong> dipilih. Data uji belum dipakai sama sekali.</p>
+tertinggi</strong> dipilih. Pemilihan ini hanya memakai data latih.</p>
 </div>
 </div>
 </div>
-</div><div class="jp-Cell jp-CodeCell jp-Notebook-cell" id="cell-id=d3b82dd7">
+</div><div class="jp-Cell jp-CodeCell jp-Notebook-cell" id="cell-id=c42101bf">
 <div class="jp-Cell-inputWrapper" tabindex="0">
 <div class="jp-Collapser jp-InputCollapser jp-Cell-inputCollapser">
 </div>
@@ -7916,13 +7938,13 @@ Bagian 5: latih 2010–2021 → validasi 2021–2023
 </div>
 </div>
 </div>
-<div class="jp-Cell jp-MarkdownCell jp-Notebook-cell" id="cell-id=5671e755">
+<div class="jp-Cell jp-MarkdownCell jp-Notebook-cell" id="cell-id=8bd139d2">
 <div class="jp-Cell-inputWrapper" tabindex="0">
 <div class="jp-Collapser jp-InputCollapser jp-Cell-inputCollapser">
 </div>
 <div class="jp-InputArea jp-Cell-inputArea"><div class="jp-InputPrompt jp-InputArea-prompt">
 </div><div class="jp-RenderedHTMLCommon jp-RenderedMarkdown jp-MarkdownOutput" data-mime-type="text/markdown">
-<h2 id="Kesimpulan">Kesimpulan<a class="anchor-link" href="#Kesimpulan">¶</a></h2><p>Lima skenario (2 baseline + 3 model) akan dibandingkan dengan cara yang sama di Unit 9.</p>
+<h2 id="Kesimpulan">Kesimpulan<a class="anchor-link" href="#Kesimpulan">¶</a></h2><p>Lima skenario (2 baseline + 3 model) dibandingkan dengan cara yang sama di Unit 9, untuk kedua iterasi fitur.</p>
 </div>
 </div>
 </div>

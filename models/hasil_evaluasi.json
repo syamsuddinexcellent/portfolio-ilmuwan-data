@@ -7,22 +7,28 @@
   ],
   "hasil": [
     {
-      "Model": "Logistic Regression",
-      "Accuracy": 0.5579,
-      "F1-macro": 0.5541,
-      "ROC-AUC": 0.583
+      "Model": "Iterasi 2: Logistic Regression (5 fitur)",
+      "Accuracy": 0.557882,
+      "F1-macro": 0.554078,
+      "ROC-AUC": 0.582954
     },
     {
       "Model": "Selalu Naik (baseline)",
-      "Accuracy": 0.5222,
-      "F1-macro": 0.343,
+      "Accuracy": 0.522167,
+      "F1-macro": 0.343042,
       "ROC-AUC": 0.5
     },
     {
       "Model": "Ikuti S&P 500 (baseline)",
-      "Accuracy": 0.5456,
-      "F1-macro": 0.5435,
-      "ROC-AUC": 0.575
+      "Accuracy": 0.545567,
+      "F1-macro": 0.543472,
+      "ROC-AUC": 0.575004
+    },
+    {
+      "Model": "Iterasi 1: Random Forest (6 fitur)",
+      "Accuracy": 0.543103,
+      "F1-macro": 0.535334,
+      "ROC-AUC": 0.577417
     }
   ],
   "target": [
@@ -51,5 +57,38 @@
     "sp500_chg",
     "vix_chg",
     "gold_chg"
-  ]
+  ],
+  "iterasi_1": {
+    "model": "Random Forest",
+    "fitur": [
+      "ihsg_chg",
+      "sp500_chg",
+      "vix_chg",
+      "oil_chg",
+      "gold_chg",
+      "usdidr_chg"
+    ],
+    "target": [
+      {
+        "Target": "Accuracy \u2265 0,55",
+        "Nilai": 0.543,
+        "Tercapai": "Tidak"
+      },
+      {
+        "Target": "F1-macro \u2265 0,55",
+        "Nilai": 0.535,
+        "Tercapai": "Tidak"
+      },
+      {
+        "Target": "ROC-AUC \u2265 0,58",
+        "Nilai": 0.577,
+        "Tercapai": "Tidak"
+      },
+      {
+        "Target": "Accuracy > baseline \"Selalu Naik\"",
+        "Nilai": 0.021,
+        "Tercapai": "Ya"
+      }
+    ]
+  }
 }

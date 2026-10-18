@@ -7796,7 +7796,7 @@ a.anchor-link {
 <!-- End of mermaid configuration --></head>
 <body class="jp-Notebook" data-jp-theme-light="true" data-jp-theme-name="JupyterLab Light">
 <main>
-<div class="jp-Cell jp-MarkdownCell jp-Notebook-cell" id="cell-id=5d50ab6f">
+<div class="jp-Cell jp-MarkdownCell jp-Notebook-cell" id="cell-id=7ca6f264">
 <div class="jp-Cell-inputWrapper" tabindex="0">
 <div class="jp-Collapser jp-InputCollapser jp-Cell-inputCollapser">
 </div>
@@ -7807,7 +7807,7 @@ a.anchor-link {
 </div>
 </div>
 </div>
-</div><div class="jp-Cell jp-CodeCell jp-Notebook-cell jp-mod-noOutputs" id="cell-id=d7fe43a0">
+</div><div class="jp-Cell jp-CodeCell jp-Notebook-cell jp-mod-noOutputs" id="cell-id=4f5ab575">
 <div class="jp-Cell-inputWrapper" tabindex="0">
 <div class="jp-Collapser jp-InputCollapser jp-Cell-inputCollapser">
 </div>
@@ -7828,7 +7828,7 @@ a.anchor-link {
 </div>
 </div>
 </div>
-</div><div class="jp-Cell jp-CodeCell jp-Notebook-cell" id="cell-id=231fed06">
+</div><div class="jp-Cell jp-CodeCell jp-Notebook-cell" id="cell-id=6ca47552">
 <div class="jp-Cell-inputWrapper" tabindex="0">
 <div class="jp-Collapser jp-InputCollapser jp-Cell-inputCollapser">
 </div>
@@ -7840,7 +7840,7 @@ a.anchor-link {
     <span class="n">hasil</span> <span class="o">=</span> <span class="n">json</span><span class="o">.</span><span class="n">load</span><span class="p">(</span><span class="n">f</span><span class="p">)</span>
 <span class="n">tabel</span> <span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">DataFrame</span><span class="p">(</span><span class="n">hasil</span><span class="p">[</span><span class="s1">'hasil'</span><span class="p">])</span>
 <span class="n">target</span> <span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">DataFrame</span><span class="p">(</span><span class="n">hasil</span><span class="p">[</span><span class="s1">'target'</span><span class="p">])</span>
-<span class="nb">print</span><span class="p">(</span><span class="s1">'Model:'</span><span class="p">,</span> <span class="n">hasil</span><span class="p">[</span><span class="s1">'model'</span><span class="p">],</span> <span class="s1">'| data uji:'</span><span class="p">,</span> <span class="n">hasil</span><span class="p">[</span><span class="s1">'jumlah_hari_uji'</span><span class="p">],</span> <span class="s1">'hari'</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="s1">'Model akhir:'</span><span class="p">,</span> <span class="n">hasil</span><span class="p">[</span><span class="s1">'model'</span><span class="p">],</span> <span class="s1">'| data uji:'</span><span class="p">,</span> <span class="n">hasil</span><span class="p">[</span><span class="s1">'jumlah_hari_uji'</span><span class="p">],</span> <span class="s1">'hari'</span><span class="p">)</span>
 <span class="n">display</span><span class="p">(</span><span class="n">tabel</span><span class="o">.</span><span class="n">round</span><span class="p">(</span><span class="mi">3</span><span class="p">))</span>
 <span class="n">display</span><span class="p">(</span><span class="n">target</span><span class="p">)</span>
 </pre></div>
@@ -7855,7 +7855,7 @@ a.anchor-link {
 <div class="jp-OutputArea-child">
 <div class="jp-OutputPrompt jp-OutputArea-prompt"></div>
 <div class="jp-RenderedText jp-OutputArea-output" data-mime-type="text/plain" tabindex="0">
-<pre>Model: Logistic Regression | data uji: 812 hari
+<pre>Model akhir: Logistic Regression | data uji: 812 hari
 </pre>
 </div>
 </div>
@@ -7889,7 +7889,7 @@ a.anchor-link {
 <tbody>
 <tr>
 <th>0</th>
-<td>Logistic Regression</td>
+<td>Iterasi 2: Logistic Regression (5 fitur)</td>
 <td>0.558</td>
 <td>0.554</td>
 <td>0.583</td>
@@ -7905,8 +7905,15 @@ a.anchor-link {
 <th>2</th>
 <td>Ikuti S&amp;P 500 (baseline)</td>
 <td>0.546</td>
-<td>0.544</td>
+<td>0.543</td>
 <td>0.575</td>
+</tr>
+<tr>
+<th>3</th>
+<td>Iterasi 1: Random Forest (6 fitur)</td>
+<td>0.543</td>
+<td>0.535</td>
+<td>0.577</td>
 </tr>
 </tbody>
 </table>
@@ -7972,7 +7979,7 @@ a.anchor-link {
 </div>
 </div>
 </div>
-<div class="jp-Cell jp-MarkdownCell jp-Notebook-cell" id="cell-id=d0d879d9">
+<div class="jp-Cell jp-MarkdownCell jp-Notebook-cell" id="cell-id=39dbfb74">
 <div class="jp-Cell-inputWrapper" tabindex="0">
 <div class="jp-Collapser jp-InputCollapser jp-Cell-inputCollapser">
 </div>
@@ -7995,35 +8002,68 @@ a.anchor-link {
 <tr>
 <td>Data (Unit 3–7)</td>
 <td>Telaah, validasi, pembersihan, pembuatan fitur</td>
-<td>306 baris/nilai bermasalah ditemukan dan diperbaiki</td>
+<td>321 baris/nilai bermasalah ditemukan dan diperbaiki</td>
 </tr>
 <tr>
 <td>Model (Unit 8–9)</td>
-<td>3 model dan 2 baseline dibandingkan</td>
+<td>3 model dan 2 baseline dibandingkan, dalam 2 iterasi fitur</td>
 <td>Validasi memakai urutan waktu</td>
 </tr>
 <tr>
 <td>Evaluasi (Unit 10)</td>
-<td>2 iterasi (lihat catatan di bawah)</td>
+<td>Data uji dipakai pada 2 iterasi</td>
 <td>Hasil kedua iterasi dilaporkan apa adanya</td>
 </tr>
 </tbody>
 </table>
-<h2 id="2.-Kelebihan">2. Kelebihan<a class="anchor-link" href="#2.-Kelebihan">¶</a></h2><ul>
+<h2 id="2.-Dua-iterasi">2. Dua iterasi<a class="anchor-link" href="#2.-Dua-iterasi">¶</a></h2><table>
+<thead>
+<tr>
+<th>Iterasi</th>
+<th>Fitur</th>
+<th>Model terpilih (validasi silang)</th>
+<th>Hasil pada data uji</th>
+<th>Target tercapai</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>1</td>
+<td>6, dengan kurs USD/IDR</td>
+<td>Random Forest (0,595)</td>
+<td>accuracy 0,543 · F1 0,535 · ROC-AUC 0,577</td>
+<td>1 dari 4</td>
+</tr>
+<tr>
+<td>2</td>
+<td>5, tanpa kurs</td>
+<td>Logistic Regression (0,599)</td>
+<td>accuracy 0,558 · F1 0,554 · ROC-AUC 0,583</td>
+<td>4 dari 4</td>
+</tr>
+</tbody>
+</table>
+<p>Hasil iterasi 1 ditinjau: model hanya sedikit lebih baik daripada tebakan "selalu naik" dan tidak lebih baik daripada
+aturan "ikuti S&amp;P 500". Alasan kurs dikeluarkan berasal dari data latih: korelasinya dengan IHSG besok hampir nol
+(−0,02, Unit 3), pengaruhnya paling kecil di model iterasi 1 (Random Forest, Unit 9), dan validasi silang tidak turun tanpa kurs
+(0,595 → 0,599). Namun keputusan ini diambil <strong>setelah</strong> hasil uji iterasi 1 terlihat, sehingga hasil iterasi 2 bisa
+sedikit terlalu optimistis.</p>
+<h2 id="3.-Kelebihan">3. Kelebihan<a class="anchor-link" href="#3.-Kelebihan">¶</a></h2><ul>
 <li>Memakai <strong>data nyata</strong> 16 tahun dan alur kerja yang lengkap.</li>
 <li>Masalah kualitas data ditemukan dan diperbaiki secara terdokumentasi.</li>
 <li>Pengujian jujur: data dibagi menurut waktu dan model dibandingkan dengan tebakan sederhana.</li>
 <li>Model sederhana dan mudah dijelaskan.</li>
 </ul>
-<h2 id="3.-Kekurangan">3. Kekurangan<a class="anchor-link" href="#3.-Kekurangan">¶</a></h2><ul>
+<h2 id="4.-Kekurangan">4. Kekurangan<a class="anchor-link" href="#4.-Kekurangan">¶</a></h2><ul>
 <li>Arah pasar saham harian sangat sulit ditebak, sehingga kinerja model terbatas.</li>
 <li>Kekuatan model sebagian besar berasal dari <strong>S&amp;P 500 semalam</strong>; aturan sederhana "ikuti S&amp;P 500" hampir sama baiknya.</li>
+<li>Data uji dipakai pada dua iterasi, sehingga hasil akhir perlu dikonfirmasi dengan data baru.</li>
 <li>Model belum memperhitungkan biaya transaksi, jadi <strong>bukan strategi trading</strong>.</li>
 </ul>
 </div>
 </div>
 </div>
-</div><div class="jp-Cell jp-CodeCell jp-Notebook-cell" id="cell-id=96709c02">
+</div><div class="jp-Cell jp-CodeCell jp-Notebook-cell" id="cell-id=7b889c1e">
 <div class="jp-Cell-inputWrapper" tabindex="0">
 <div class="jp-Collapser jp-InputCollapser jp-Cell-inputCollapser">
 </div>
@@ -8057,25 +8097,23 @@ a.anchor-link {
 </div>
 </div>
 </div>
-<div class="jp-Cell jp-MarkdownCell jp-Notebook-cell" id="cell-id=4695f0a7">
+<div class="jp-Cell jp-MarkdownCell jp-Notebook-cell" id="cell-id=e833c869">
 <div class="jp-Cell-inputWrapper" tabindex="0">
 <div class="jp-Collapser jp-InputCollapser jp-Cell-inputCollapser">
 </div>
 <div class="jp-InputArea jp-Cell-inputArea"><div class="jp-InputPrompt jp-InputArea-prompt">
 </div><div class="jp-RenderedHTMLCommon jp-RenderedMarkdown jp-MarkdownOutput" data-mime-type="text/markdown">
-<p><strong>Catatan hasil:</strong> semua target tercapai, tetapi selisihnya <strong>tipis</strong> (ROC-AUC 0,583 vs target 0,58). Ini hasil
-iterasi kedua, setelah satu variabel yang pengaruhnya hampir nol dikeluarkan. Karena data uji yang sama dipakai dua
-kali, hasil ini bisa sedikit terlalu optimistis. Langkah berikutnya adalah <strong>uji coba paralel</strong> dengan data baru
-setelah September 2026, bukan langsung dipakai.</p>
+<p><strong>Catatan hasil:</strong> pada iterasi 2 semua target tercapai, tetapi selisihnya <strong>tipis</strong> (ROC-AUC 0,583 vs target 0,58).
+Langkah berikutnya adalah <strong>uji coba paralel</strong> dengan data baru setelah September 2026, bukan langsung dipakai.</p>
 <p>Periode uji (Apr 2023 – Sep 2026) juga mencakup gejolak besar: IHSG turun <strong>41,5%</strong> dari puncaknya 9.134,7
 (20 Jan 2026) ke 5.342,1 (8 Jun 2026).</p>
-<h2 id="4.-Rekomendasi-perbaikan">4. Rekomendasi perbaikan<a class="anchor-link" href="#4.-Rekomendasi-perbaikan">¶</a></h2><ol>
+<h2 id="5.-Rekomendasi-perbaikan">5. Rekomendasi perbaikan<a class="anchor-link" href="#5.-Rekomendasi-perbaikan">¶</a></h2><ol>
 <li>Tambah data <strong>bursa Asia</strong> yang buka sebelum BEI (Nikkei, Hang Seng) sebagai fitur.</li>
 <li>Latih ulang model <strong>setiap bulan</strong> agar mengikuti kondisi pasar terbaru.</li>
 <li>Uji keuntungan nyata dengan memperhitungkan harga pembukaan dan biaya transaksi.</li>
 <li>Perbaikan berikutnya diuji dengan <strong>data baru</strong> (setelah September 2026), bukan data uji yang sudah dipakai.</li>
 </ol>
-<h2 id="5.-Rencana-penerapan">5. Rencana penerapan<a class="anchor-link" href="#5.-Rencana-penerapan">¶</a></h2><table>
+<h2 id="6.-Rencana-penerapan">6. Rencana penerapan<a class="anchor-link" href="#6.-Rencana-penerapan">¶</a></h2><table>
 <thead>
 <tr>
 <th>Tahap</th>

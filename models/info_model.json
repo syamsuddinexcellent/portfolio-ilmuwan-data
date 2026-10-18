@@ -7,5 +7,17 @@
     "oil_chg",
     "gold_chg"
   ],
-  "cv_accuracy": 0.5985
+  "cv_accuracy": 0.5985,
+  "iterasi_1": {
+    "model": "Random Forest",
+    "fitur": [
+      "ihsg_chg",
+      "sp500_chg",
+      "vix_chg",
+      "oil_chg",
+      "gold_chg",
+      "usdidr_chg"
+    ],
+    "cv_accuracy": 0.5952
+  }
 }
